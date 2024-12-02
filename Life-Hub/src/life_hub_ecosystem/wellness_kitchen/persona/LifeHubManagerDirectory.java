@@ -11,26 +11,26 @@ import java.util.ArrayList;
  *
  * @author marri
  */
-public class HealthHubManagerDirectory {
+public class LifeHubManagerDirectory {
 
-    ArrayList<HealthHubManagerProfile> managersList;
+    ArrayList<LifeHubManagerProfile> managersList;
 
-    public HealthHubManagerDirectory() {
+    public LifeHubManagerDirectory() {
 
         managersList = new ArrayList();
 
     }
 
-    public HealthHubManagerProfile newManager(Person p, String exp) {
-        HealthHubManagerProfile hhm = new HealthHubManagerProfile(p, exp);
+    public LifeHubManagerProfile newManager(Person p, String exp) {
+        LifeHubManagerProfile hhm = new LifeHubManagerProfile(p, exp);
         managersList.add(hhm);
         return hhm;
 
     }
 
-    public HealthHubManagerProfile findManager(String id) {
+    public LifeHubManagerProfile findManager(String id) {
 
-        for (HealthHubManagerProfile hhm : managersList) {
+        for (LifeHubManagerProfile hhm : managersList) {
 
             if (hhm.isMatch(id)) {
                 return hhm;

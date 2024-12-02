@@ -7,7 +7,7 @@ package life_hub_ecosystem.ui;
 
 import life_hub_ecosystem.ConfigureSystem;
 import life_hub_ecosystem.EcoSystem;
-import life_hub_ecosystem.wellness_kitchen.persona.HealthHubManagerProfile;
+import life_hub_ecosystem.wellness_kitchen.persona.LifeHubManagerProfile;
 import life_hub_ecosystem.hospital.profiles.DoctorProfile;
 import life_hub_ecosystem.hospital.profiles.NurseProfile;
 import life_hub_ecosystem.hospital.profiles.PatientProfile;
@@ -17,12 +17,11 @@ import life_hub_ecosystem.persona.Profile;
 import life_hub_ecosystem.persona.UserAccount;
 import life_hub_ecosystem.persona.UserAccountDirectory;
 import life_hub_ecosystem.pharmacy.PharmacistProfile;
-import life_hub_ecosystem.ui.Admins.AdminEateryJPanel;
 import life_hub_ecosystem.ui.Admins.AdminHospitalJpanel;
 import life_hub_ecosystem.ui.Admins.AdminLabAssistantJPanel;
 import life_hub_ecosystem.ui.Admins.AdminPharmacistJPanel;
 import life_hub_ecosystem.ui.Pharmacist.PharmacistMainJPanel;
-import life_hub_ecosystem.ui.healthHub.ManagerMainJPanel;
+import life_hub_ecosystem.ui.lifeHub.ManagerMainJPanel;
 import life_hub_ecosystem.ui.hospital.DocMainJPanel;
 import life_hub_ecosystem.ui.hospital.NurseMainJPanel;
 import life_hub_ecosystem.ui.labAssistant.LabAssistantMainJPanel;
@@ -169,7 +168,7 @@ public class WorkAreaMainFrame extends javax.swing.JFrame {
         UserAccountDirectory uad = es.getUseraccountdirectory();
         
         if(un.equals("adminEatery")&&pw.equals("admin")){
-            AdminEateryJPanel sp=new AdminEateryJPanel(es.getUseraccountdirectory(),CardSequencePanel);
+            life_hub_ecosystem.ui.Admins.AdminWellnessKitchenJPanel sp=new life_hub_ecosystem.ui.Admins.AdminWellnessKitchenJPanel(es.getUseraccountdirectory(),CardSequencePanel);
             CardSequencePanel.removeAll();
             CardSequencePanel.add("SuperAdmin", sp);
             ((java.awt.CardLayout) CardSequencePanel.getLayout()).next(CardSequencePanel);
@@ -274,9 +273,9 @@ public class WorkAreaMainFrame extends javax.swing.JFrame {
             CardSequencePanel.add("student", pharmacistMainJPanel);
             ((java.awt.CardLayout) CardSequencePanel.getLayout()).next(CardSequencePanel);
         }
-        if (profile instanceof HealthHubManagerProfile) {
+        if (profile instanceof LifeHubManagerProfile) {
 
-            HealthHubManagerProfile pp = (HealthHubManagerProfile) profile;
+            LifeHubManagerProfile pp = (LifeHubManagerProfile) profile;
             managerMainJPanel = new ManagerMainJPanel(es, pp, CardSequencePanel);
             CardSequencePanel.removeAll();
             CardSequencePanel.add("student", managerMainJPanel);
@@ -342,9 +341,9 @@ public class WorkAreaMainFrame extends javax.swing.JFrame {
             ((java.awt.CardLayout) CardSequencePanel.getLayout()).next(CardSequencePanel);
         }
         if ("Manager".toLowerCase().equals((ddUser.getSelectedItem()).toString().toLowerCase())) {
-            HealthHUbManagerSignUpJPanel HealthHUbManagerSignUpJPanel = new HealthHUbManagerSignUpJPanel(CardSequencePanel, es);
+            LifeHubManagerSignUpJPanel LifeHubManagerSignUpJPanel = new LifeHubManagerSignUpJPanel(CardSequencePanel, es);
             CardSequencePanel.removeAll();
-            CardSequencePanel.add(" HealthHUbManager", HealthHUbManagerSignUpJPanel);
+            CardSequencePanel.add(" LifeHubManager", LifeHubManagerSignUpJPanel);
             ((java.awt.CardLayout) CardSequencePanel.getLayout()).next(CardSequencePanel);
 
         }

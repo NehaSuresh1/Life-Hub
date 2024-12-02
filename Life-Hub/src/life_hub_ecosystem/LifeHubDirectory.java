@@ -11,11 +11,11 @@ import java.util.UUID;
  *
  * @author marri
  */
-public class HealthHubDirectory {
+public class LifeHubDirectory {
 
     ArrayList<WellnessKitchen> hhlist;
 
-    public HealthHubDirectory() {
+    public LifeHubDirectory() {
 
         hhlist = new ArrayList();
 

@@ -5,8 +5,8 @@
 package life_hub_ecosystem.ui;
 
 import life_hub_ecosystem.EcoSystem;
-import life_hub_ecosystem.wellness_kitchen.persona.HealthHubManagerDirectory;
-import life_hub_ecosystem.wellness_kitchen.persona.HealthHubManagerProfile;
+import life_hub_ecosystem.wellness_kitchen.persona.LifeHubManagerDirectory;
+import life_hub_ecosystem.wellness_kitchen.persona.LifeHubManagerProfile;
 import life_hub_ecosystem.persona.Password;
 import life_hub_ecosystem.persona.Person;
 import life_hub_ecosystem.persona.PersonDirectory;
@@ -18,7 +18,7 @@ import javax.swing.JPanel;
  *
  * @author srimanth
  */
-public class HealthHUbManagerSignUpJPanel extends javax.swing.JPanel {
+public class LifeHubManagerSignUpJPanel extends javax.swing.JPanel {
 
     /**
      * Creates new form HealthHUbManagerSignUpJPanel
@@ -28,7 +28,7 @@ public class HealthHUbManagerSignUpJPanel extends javax.swing.JPanel {
 
     javax.swing.JPanel CardSequencePanel;
 
-    public HealthHUbManagerSignUpJPanel(JPanel clp, EcoSystem es) {
+    public LifeHubManagerSignUpJPanel(JPanel clp, EcoSystem es) {
         
         this.CardSequencePanel = clp;
         this.es = es;
@@ -222,8 +222,8 @@ public class HealthHUbManagerSignUpJPanel extends javax.swing.JPanel {
             PersonDirectory pd = es.getPersonDirectory();
             Person currentPerson = pd.newPerson(txtName.getText(), Integer.parseInt(txtAge.getText()), txtEmail.getText(), (String) dropGender.getSelectedItem());
 
-            HealthHubManagerDirectory managerDirectory = es.getHealthHubDirectory().findHubByName(dropLab.getSelectedItem().toString()).getHealthHubManagerDirectory();
-            HealthHubManagerProfile managerProfile = managerDirectory.newManager(currentPerson, txtExperience.getText());
+            LifeHubManagerDirectory managerDirectory = es.getHealthHubDirectory().findHubByName(dropLab.getSelectedItem().toString()).getHealthHubManagerDirectory();
+            LifeHubManagerProfile managerProfile = managerDirectory.newManager(currentPerson, txtExperience.getText());
 
             es.getUseraccountdirectory().newUserAccount(managerProfile, txtUsername.getText(), Password.hasher(txtPassword.getText()));
 

@@ -5,7 +5,7 @@
 package life_hub_ecosystem.ui.superAdmin;
 
 import life_hub_ecosystem.EcoSystem;
-import life_hub_ecosystem.HealthHubDirectory;
+import life_hub_ecosystem.LifeHubDirectory;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -13,14 +13,14 @@ import javax.swing.JPanel;
  *
  * @author Tarun
  */
-public class SuperAdminEateryJPanel extends javax.swing.JPanel {
+public class SuperAdminWellnessKitchenJPanel extends javax.swing.JPanel {
 
     /**
      * Creates new form SuperAdminJPanel
      */
      EcoSystem es;
     javax.swing.JPanel CardSequencePanel;
-    public SuperAdminEateryJPanel(EcoSystem es,JPanel cp) {
+    public SuperAdminWellnessKitchenJPanel(EcoSystem es, JPanel cp) {
         this.es=es;
         CardSequencePanel=cp;
         initComponents();
@@ -136,7 +136,7 @@ public class SuperAdminEateryJPanel extends javax.swing.JPanel {
 
     private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
         // TODO add your handling code here:
-        HealthHubDirectory hh= es.getHealthHubDirectory();
+        LifeHubDirectory hh= es.getHealthHubDirectory();
         hh.newHH(jTextField1.getText(), jTextField2.getText());
         jTextField1.setText("      ");
         jTextField2.setText("      ");
