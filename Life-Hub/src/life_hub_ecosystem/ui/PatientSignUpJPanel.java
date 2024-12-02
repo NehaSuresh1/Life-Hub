@@ -232,16 +232,25 @@ public class PatientSignUpJPanel extends javax.swing.JPanel {
     private void btnSignupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSignupActionPerformed
         // TODO add your handling code here:
         //person = new Person(txt, TOOL_TIP_TEXT_KEY, ABORT, TOOL_TIP_TEXT_KEY)
+     
         if (txtAge.getText().isBlank() || txtEmail.getText().isBlank() || txtName.getText().isBlank()
                 || txtPassword.getText().isBlank() || txtUsername.getText().isBlank()
                 || txtStreetAddress.getText().isBlank() || txtZipcode.getText().isBlank()) {
             JOptionPane.showMessageDialog(this, "Please enter all details");
             return;
         }
+        
         if (txtUsername.getText().length() < 6 || txtUsername.getText().length() > 20) {
             JOptionPane.showMessageDialog(this, "Username must be between 6 and 20 characters.");
             return;
         }
+        
+//      Check if username exist 
+        if(!es.getUseraccountdirectory().isUserNameAvailable(txtUsername.getText())){
+            JOptionPane.showMessageDialog(this, "This username exists. use different username");
+            return;
+        }
+        
 //        }  if (!Validator.password(txtPassword.getText())) {
 //            JOptionPane.showMessageDialog(this, "Enter valid password");
 //            return;
