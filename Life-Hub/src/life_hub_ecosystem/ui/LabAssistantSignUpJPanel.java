@@ -182,6 +182,12 @@ public class LabAssistantSignUpJPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "Username must be between 6 and 20 characters.");
             return;
         }
+        
+        //      Check if username exist 
+        if(!es.getUseraccountdirectory().isUserNameAvailable(txtUsername.getText())){
+            JOptionPane.showMessageDialog(this, "This username exists. use different username");
+            return;
+        }
 //        if (!Validator.password(txtPassword.getText())) {
 //            JOptionPane.showMessageDialog(this, "Enter valid password");
 //            return;
