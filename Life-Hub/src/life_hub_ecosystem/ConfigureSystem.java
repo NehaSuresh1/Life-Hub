@@ -5,7 +5,7 @@
 package life_hub_ecosystem;
 
 import life_hub_ecosystem.wellness_kitchen.persona.DelieryAgentProfile;
-import life_hub_ecosystem.wellness_kitchen.persona.HealthHubManagerProfile;
+import life_hub_ecosystem.wellness_kitchen.persona.LifeHubManagerProfile;
 import life_hub_ecosystem.hospital.Appointment;
 import life_hub_ecosystem.hospital.Med;
 import life_hub_ecosystem.hospital.departments.Department;
@@ -47,8 +47,8 @@ public class ConfigureSystem {
 //        Pharmacy p4 = es.pharmacyDirectory.newPharmacy("Pharmacy branch 4");
 
 ///////////---------------------------------------------------------
-        WellnessKitchen hh1 = es.healthHubDirectory.newHH("HealthHub branch 1", "02119");
-        WellnessKitchen hh2 = es.healthHubDirectory.newHH("HealthHub branch 2", "02115");
+        WellnessKitchen hh1 = es.lifeHubDirectory.newHH("LifeHub branch 1", "02119");
+        WellnessKitchen hh2 = es.lifeHubDirectory.newHH("LifeHub branch 2", "02115");
 //        WellnessKitchen hh3 = es.healthHubDirectory.newHH("HealthHub branch 3");
 //        WellnessKitchen hh4 = es.healthHubDirectory.newHH("HealthHub branch 4");
 
@@ -104,12 +104,12 @@ public class ConfigureSystem {
         PharmacistProfile pp2 = es.getPharmacyDirectory().findPharmacy(p2.getId()).pharmacistDirectory.newPharmacist(person17, "M Pharma");
 
 ///////////---------------------------------------------------------
-        HealthHubManagerProfile hhm1 = es.healthHubDirectory.findHH(hh1.getId()).healthHubManagerDirectory.newManager(person18, "4");
-        HealthHubManagerProfile hhm2 = es.healthHubDirectory.findHH(hh2.getId()).healthHubManagerDirectory.newManager(person19, "4");
+        LifeHubManagerProfile hhm1 = es.lifeHubDirectory.findHH(hh1.getId()).lifeHubManagerDirectory.newManager(person18, "4");
+        LifeHubManagerProfile hhm2 = es.lifeHubDirectory.findHH(hh2.getId()).lifeHubManagerDirectory.newManager(person19, "4");
 
 ///////////---------------------------------------------------------
-        DelieryAgentProfile da1 = es.healthHubDirectory.findHH(hh1.getId()).deliveryAgentDirectory.newDA(person20, "02119");
-        DelieryAgentProfile da2 = es.healthHubDirectory.findHH(hh2.getId()).deliveryAgentDirectory.newDA(person20, "02120");
+        DelieryAgentProfile da1 = es.lifeHubDirectory.findHH(hh1.getId()).deliveryAgentDirectory.newDA(person20, "02119");
+        DelieryAgentProfile da2 = es.lifeHubDirectory.findHH(hh2.getId()).deliveryAgentDirectory.newDA(person20, "02120");
 
 ///////////--------------------------------------------------------- 
         PatientProfile patient01 = h1.patientDirectory.newPatient("veg", "123 main st", "Boston", "MA", "02119", person11, h1);

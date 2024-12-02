@@ -11,12 +11,12 @@ import life_hub_ecosystem.persona.Profile;
  *
  * @author marri
  */
-public class HealthHubManagerProfile extends Profile{
+public class LifeHubManagerProfile extends Profile{
 
     String Experience;
     Person person;
 
-    public HealthHubManagerProfile(Person p, String Experience) {
+    public LifeHubManagerProfile(Person p, String Experience) {
         super(p);
         person = p;
         this.Experience=Experience;

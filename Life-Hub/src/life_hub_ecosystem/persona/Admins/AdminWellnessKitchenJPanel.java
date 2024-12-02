@@ -4,7 +4,7 @@
  */
 package life_hub_ecosystem.ui.Admins;
 
-import life_hub_ecosystem.wellness_kitchen.persona.HealthHubManagerProfile;
+import life_hub_ecosystem.wellness_kitchen.persona.LifeHubManagerProfile;
 import life_hub_ecosystem.persona.UserAccount;
 import life_hub_ecosystem.persona.UserAccountDirectory;
 import java.awt.BorderLayout;
@@ -18,7 +18,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Tarun
  */
-public class AdminEateryJPanel extends javax.swing.JPanel {
+public class AdminWellnessKitchenJPanel extends javax.swing.JPanel {
 
     /**
      * Creates new form AdminEateryJPanel
@@ -27,7 +27,7 @@ public class AdminEateryJPanel extends javax.swing.JPanel {
     private JPanel cardSequencePanel;
   
 
-    public AdminEateryJPanel(UserAccountDirectory userAccountDirectory, JPanel cardPanel) {
+    public AdminWellnessKitchenJPanel(UserAccountDirectory userAccountDirectory, JPanel cardPanel) {
         initComponents();
         this.userAccountDirectory = userAccountDirectory;
         this.cardSequencePanel = cardPanel;
@@ -50,8 +50,8 @@ public class AdminEateryJPanel extends javax.swing.JPanel {
 
         // Populate the table with data from the UserAccountDirectory for health hub eatery managers
         for (UserAccount userAccount : userAccountDirectory.getUserAccountList()) {
-            if (userAccount.getAssociatedPersonProfile() instanceof HealthHubManagerProfile) {
-                HealthHubManagerProfile managerProfile = (HealthHubManagerProfile) userAccount.getAssociatedPersonProfile();
+            if (userAccount.getAssociatedPersonProfile() instanceof LifeHubManagerProfile) {
+                LifeHubManagerProfile managerProfile = (LifeHubManagerProfile) userAccount.getAssociatedPersonProfile();
                 tableModel.addRow(new Object[]{
                     managerProfile.getPerson().getPersonId(),
                     managerProfile.getPerson().getName(),
@@ -84,8 +84,8 @@ public class AdminEateryJPanel extends javax.swing.JPanel {
             // Iterate through the array to find the matching UserAccount by managerId
             UserAccount matchingUserAccount = null;
             for (UserAccount userAccount : userAccountDirectory.getUserAccountList()) {
-                if (userAccount.getAssociatedPersonProfile() instanceof HealthHubManagerProfile) {
-                    HealthHubManagerProfile managerProfile = (HealthHubManagerProfile) userAccount.getAssociatedPersonProfile();
+                if (userAccount.getAssociatedPersonProfile() instanceof LifeHubManagerProfile) {
+                    LifeHubManagerProfile managerProfile = (LifeHubManagerProfile) userAccount.getAssociatedPersonProfile();
                     if (managerProfile.getPerson().getPersonId().equals(managerId)) {
                         matchingUserAccount = userAccount;
                         break; // Exit the loop once a match is found

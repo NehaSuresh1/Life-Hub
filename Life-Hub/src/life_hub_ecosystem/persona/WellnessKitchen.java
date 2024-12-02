@@ -6,7 +6,7 @@ package life_hub_ecosystem.persona;
 
 
 import life_hub_ecosystem.wellness_kitchen.persona.DeliveryAgentDirectory;
-import life_hub_ecosystem.wellness_kitchen.persona.HealthHubManagerDirectory;
+import life_hub_ecosystem.wellness_kitchen.persona.LifeHubManagerDirectory;
 
 /**
  *
@@ -17,14 +17,14 @@ public class WellnessKitchen {
     String Id;
     String zipcode;
     String name;
-    HealthHubManagerDirectory healthHubManagerDirectory;
+    LifeHubManagerDirectory lifeHubManagerDirectory;
     DeliveryAgentDirectory deliveryAgentDirectory;
 
     public WellnessKitchen(String id, String name,String zipcode) {
         this.name = name;
         this.Id = id;
         this.zipcode=zipcode;
-        healthHubManagerDirectory = new HealthHubManagerDirectory();
+        lifeHubManagerDirectory = new LifeHubManagerDirectory();
         deliveryAgentDirectory = new DeliveryAgentDirectory();
     }
 
@@ -44,8 +44,8 @@ public class WellnessKitchen {
         this.name = name;
     }
     
-    public HealthHubManagerDirectory getHealthHubManagerDirectory() {
-        return healthHubManagerDirectory;
+    public LifeHubManagerDirectory getHealthHubManagerDirectory() {
+        return lifeHubManagerDirectory;
     }
 
     public String getId() {

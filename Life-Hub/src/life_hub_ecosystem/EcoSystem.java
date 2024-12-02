@@ -26,7 +26,7 @@ public class EcoSystem {
     HospitalDirectory hospitalDirectory;
     LabDirectory labDirectory;
     PharmacyDirectory pharmacyDirectory;
-    HealthHubDirectory healthHubDirectory;
+    LifeHubDirectory lifeHubDirectory;
     LabTestDirectory labTestDirectory;
     MedDirectory medDirectory;
     LabOrdersDirectory labOrdersDirectory;
@@ -42,7 +42,7 @@ public class EcoSystem {
         hospitalDirectory = new HospitalDirectory();
         labDirectory = new LabDirectory();
         pharmacyDirectory = new PharmacyDirectory();
-        healthHubDirectory = new HealthHubDirectory();
+        lifeHubDirectory = new LifeHubDirectory();
         labTestDirectory = new LabTestDirectory();
         medDirectory = new MedDirectory();
         labOrdersDirectory = new LabOrdersDirectory();
@@ -101,7 +101,7 @@ public class EcoSystem {
         return pharmacyDirectory;
     }
 
-    public HealthHubDirectory getHealthHubDirectory() {
-        return healthHubDirectory;
+    public LifeHubDirectory getHealthHubDirectory() {
+        return lifeHubDirectory;
     }
 }

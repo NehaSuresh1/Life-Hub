@@ -2,13 +2,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package life_hub_ecosystem.ui.healthHub;
+package life_hub_ecosystem.ui.lifeHub;
 
 import life_hub_ecosystem.EcoSystem;
 import life_hub_ecosystem.wellness_kitchen.Meal;
 import life_hub_ecosystem.wellness_kitchen.MealOrder;
 import life_hub_ecosystem.wellness_kitchen.MealPlan;
-import life_hub_ecosystem.wellness_kitchen.persona.HealthHubManagerProfile;
+import life_hub_ecosystem.wellness_kitchen.persona.LifeHubManagerProfile;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -28,11 +28,11 @@ public class ManagerMainJPanel extends javax.swing.JPanel {
      * Creates new form PharmacistMainJPanel
      */
     EcoSystem es;
-    HealthHubManagerProfile hhmp;
+    LifeHubManagerProfile hhmp;
     javax.swing.JPanel CardSequencePanel;
     MealOrder selectedMealorder;
 
-    public ManagerMainJPanel(EcoSystem es, HealthHubManagerProfile hhmp, JPanel clp) {
+    public ManagerMainJPanel(EcoSystem es, LifeHubManagerProfile hhmp, JPanel clp) {
         this.es = es;
         this.hhmp = hhmp;
         this.CardSequencePanel = clp;
