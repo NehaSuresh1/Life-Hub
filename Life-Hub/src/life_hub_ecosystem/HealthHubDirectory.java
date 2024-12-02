@@ -13,7 +13,7 @@ import java.util.UUID;
  */
 public class HealthHubDirectory {
 
-    ArrayList<HealthHubEatery> hhlist;
+    ArrayList<WellnessKitchen> hhlist;
 
     public HealthHubDirectory() {
 
@@ -21,17 +21,17 @@ public class HealthHubDirectory {
 
     }
 
-    public HealthHubEatery newHH(String name, String zipcode) {
+    public WellnessKitchen newHH(String name, String zipcode) {
 
-        HealthHubEatery p = new HealthHubEatery(UUID.randomUUID().toString(), name, zipcode);
+        WellnessKitchen p = new WellnessKitchen(UUID.randomUUID().toString(), name, zipcode);
         hhlist.add(p);
         return p;
 
     }
 
-    public HealthHubEatery findHH(String id) {
+    public WellnessKitchen findHH(String id) {
 
-        for (HealthHubEatery p : hhlist) {
+        for (WellnessKitchen p : hhlist) {
 
             if (p.isMatch(id)) {
                 return p;
@@ -52,9 +52,9 @@ public class HealthHubDirectory {
         return hospName;
     }
 
-    public HealthHubEatery findHubByName(String name) {
+    public WellnessKitchen findHubByName(String name) {
 
-        for (HealthHubEatery p : hhlist) {
+        for (WellnessKitchen p : hhlist) {
 
             if (p.getName() == null ? name == null : p.getName().equals(name)) {
                 return p;

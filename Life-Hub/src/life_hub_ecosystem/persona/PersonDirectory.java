@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Marri
+ * @author ojas
  */
 public class PersonDirectory {
 

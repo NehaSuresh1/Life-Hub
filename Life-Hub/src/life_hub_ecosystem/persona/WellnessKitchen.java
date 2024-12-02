@@ -10,9 +10,9 @@ import life_hub_ecosystem.wellness_kitchen.persona.HealthHubManagerDirectory;
 
 /**
  *
- * @author marri
+ * @author ojas
  */
-public class HealthHubEatery {
+public class WellnessKitchen {
 
     String Id;
     String zipcode;
@@ -20,7 +20,7 @@ public class HealthHubEatery {
     HealthHubManagerDirectory healthHubManagerDirectory;
     DeliveryAgentDirectory deliveryAgentDirectory;
 
-    public HealthHubEatery(String id, String name,String zipcode) {
+    public WellnessKitchen(String id, String name,String zipcode) {
         this.name = name;
         this.Id = id;
         this.zipcode=zipcode;
