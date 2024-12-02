@@ -47,10 +47,10 @@ public class ConfigureSystem {
 //        Pharmacy p4 = es.pharmacyDirectory.newPharmacy("Pharmacy branch 4");
 
 ///////////---------------------------------------------------------
-        HealthHubEatery hh1 = es.healthHubDirectory.newHH("HealthHub branch 1", "02119");
-        HealthHubEatery hh2 = es.healthHubDirectory.newHH("HealthHub branch 2", "02115");
-//        HealthHubEatery hh3 = es.healthHubDirectory.newHH("HealthHub branch 3");
-//        HealthHubEatery hh4 = es.healthHubDirectory.newHH("HealthHub branch 4");
+        WellnessKitchen hh1 = es.healthHubDirectory.newHH("HealthHub branch 1", "02119");
+        WellnessKitchen hh2 = es.healthHubDirectory.newHH("HealthHub branch 2", "02115");
+//        WellnessKitchen hh3 = es.healthHubDirectory.newHH("HealthHub branch 3");
+//        WellnessKitchen hh4 = es.healthHubDirectory.newHH("HealthHub branch 4");
 
 ///////////---------------------------------------------------------
         Person person01 = es.personDirectory.newPerson("abc", 24, "abc@gmail.com" , "male");
