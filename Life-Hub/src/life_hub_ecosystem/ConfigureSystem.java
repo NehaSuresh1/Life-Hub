@@ -52,6 +52,8 @@ public class ConfigureSystem {
 //        WellnessKitchen hh3 = es.healthHubDirectory.newHH("HealthHub branch 3");
 //        WellnessKitchen hh4 = es.healthHubDirectory.newHH("HealthHub branch 4");
 
+    
+
 ///////////---------------------------------------------------------
         Person person01 = es.personDirectory.newPerson("abc", 24, "abc@gmail.com" , "male");
         Person person02 = es.personDirectory.newPerson("cde", 24, "cde@gmail.com" , "male");
@@ -106,6 +108,8 @@ public class ConfigureSystem {
 ///////////---------------------------------------------------------
         LifeHubManagerProfile hhm1 = es.lifeHubDirectory.findHH(hh1.getId()).lifeHubManagerDirectory.newManager(person18, "4");
         LifeHubManagerProfile hhm2 = es.lifeHubDirectory.findHH(hh2.getId()).lifeHubManagerDirectory.newManager(person19, "4");
+        
+        
 
 ///////////---------------------------------------------------------
         DelieryAgentProfile da1 = es.lifeHubDirectory.findHH(hh1.getId()).deliveryAgentDirectory.newDA(person20, "02119");
