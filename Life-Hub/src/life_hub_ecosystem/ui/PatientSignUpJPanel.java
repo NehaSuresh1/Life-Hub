@@ -71,10 +71,10 @@ public class PatientSignUpJPanel extends javax.swing.JPanel {
         lblCity = new javax.swing.JLabel();
         lblState = new javax.swing.JLabel();
         lblZipcode = new javax.swing.JLabel();
-        txtState = new javax.swing.JTextField();
         txtZipcode = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         dropDietary = new javax.swing.JComboBox<>();
+        dropState = new javax.swing.JComboBox<>();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -133,6 +133,8 @@ public class PatientSignUpJPanel extends javax.swing.JPanel {
 
         dropDietary.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "non-veg", "veg" }));
 
+        dropState.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado", "Connecticut", "Delaware", "Florida", "Georgia", "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa", "Kansas", "Kentucky", "Louisiana", "Maine", "Maryland", "Massachusetts", "Michigan", "Minnesota", "Mississippi", "Missouri", "Montana", "Nebraska", "Nevada", "New Hampshire", "New Jersey", "New Mexico", "New York", "North Carolina", "North Dakota", "Ohio", "Oklahoma", "Oregon", "Pennsylvania", "Rhode Island", "South Carolina", "South Dakota", "Tennessee", "Texas", "Utah", "Vermont", "Virginia", "Washington", "West Virginia", "Wisconsin", "Wyoming" }));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -166,9 +168,9 @@ public class PatientSignUpJPanel extends javax.swing.JPanel {
                             .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtCity, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtState, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtZipcode, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtAge, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(txtAge, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(dropState, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(243, 243, 243)
                         .addComponent(btnSignup)))
@@ -177,7 +179,7 @@ public class PatientSignUpJPanel extends javax.swing.JPanel {
 
         layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jLabel1, jLabel2, lblAge, lblCity, lblEmail, lblName, lblPassword, lblState, lblStreetAddress, lblUserName, lblZipcode});
 
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {dropDietary, dropGender, txtAge, txtCity, txtEmail, txtName, txtPassword, txtState, txtStreetAddress, txtUsername, txtZipcode});
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {dropDietary, dropGender, txtAge, txtCity, txtEmail, txtName, txtPassword, txtStreetAddress, txtUsername, txtZipcode});
 
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -218,8 +220,8 @@ public class PatientSignUpJPanel extends javax.swing.JPanel {
                     .addComponent(lblCity))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtState, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblState))
+                    .addComponent(lblState)
+                    .addComponent(dropState, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtZipcode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -235,7 +237,7 @@ public class PatientSignUpJPanel extends javax.swing.JPanel {
 
         layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jLabel1, jLabel2, lblAge, lblCity, lblEmail, lblName, lblPassword, lblState, lblStreetAddress, lblUserName, lblZipcode});
 
-        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {dropDietary, dropGender, txtAge, txtCity, txtEmail, txtName, txtPassword, txtState, txtStreetAddress, txtUsername, txtZipcode});
+        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {dropDietary, dropGender, txtAge, txtCity, txtEmail, txtName, txtPassword, txtStreetAddress, txtUsername, txtZipcode});
 
     }// </editor-fold>//GEN-END:initComponents
 
@@ -272,7 +274,7 @@ public class PatientSignUpJPanel extends javax.swing.JPanel {
             Person currentPerson = pd.newPerson(txtName.getText(), Integer.parseInt(txtAge.getText()), txtEmail.getText(), (String) dropGender.getSelectedItem());
 
             PatientProfile patientProfile = patientDirectory.newPatient(dropDietary.getSelectedItem().toString(),
-                    txtStreetAddress.getText(), txtCity.getText(), txtState.getText(),
+                    txtStreetAddress.getText(), txtCity.getText(), dropState.getSelectedItem().toString(),
                     txtZipcode.getText(), currentPerson,
                     es.getHospitalDirectory().findHospitalByZipcode(txtZipcode.getText()));
             es.getUseraccountdirectory().newUserAccount(patientProfile, txtUsername.getText(), Password.hasher(txtPassword.getText()));
@@ -299,7 +301,7 @@ public class PatientSignUpJPanel extends javax.swing.JPanel {
          try{
         ArrayList<String> details = ZipcodeDataLoaderHelper.getzipCodeDetails(txtZipcode.getText());
             txtCity.setText(details.get(0));
-            txtState.setText(details.get(1));
+            dropState.setSelectedItem(details.get(1));
         } catch (IOException ex) {
             //Logger.getLogger(PatientSignUpJPanel.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -311,6 +313,7 @@ public class PatientSignUpJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnSignup;
     private javax.swing.JComboBox<String> dropDietary;
     private javax.swing.JComboBox<String> dropGender;
+    private javax.swing.JComboBox<String> dropState;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel lblAge;
@@ -328,7 +331,6 @@ public class PatientSignUpJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtName;
     private javax.swing.JTextField txtPassword;
-    private javax.swing.JTextField txtState;
     private javax.swing.JTextField txtStreetAddress;
     private javax.swing.JTextField txtUsername;
     private javax.swing.JTextField txtZipcode;
