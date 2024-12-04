@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
+  <Properties>
+    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+    </Property>
+  </Properties>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
@@ -16,114 +21,108 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+              <Component id="btnSignup" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="273" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
-                      <Component id="lblHeading" min="-2" pref="501" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="231" max="-2" attributes="0"/>
-                      <Component id="btnSignup" min="-2" max="-2" attributes="0"/>
-                  </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="157" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="lblAge" alignment="0" min="-2" pref="52" max="-2" attributes="0"/>
-                              <Component id="lblEmail" alignment="0" max="32767" attributes="0"/>
-                              <Component id="lblName" alignment="0" min="-2" pref="52" max="-2" attributes="0"/>
-                              <Component id="lblUserName" alignment="0" pref="71" max="32767" attributes="0"/>
-                              <Component id="lblPassword" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Component id="lblExperience" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblSpeciality1" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                              <Component id="lblHighestQualification" alignment="0" max="32767" attributes="0"/>
-                              <Component id="lblSpeciality" alignment="0" max="32767" attributes="0"/>
-                          </Group>
+                          <Component id="lblSpeciality1" linkSize="1" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblEmail" linkSize="1" alignment="0" min="-2" pref="209" max="-2" attributes="0"/>
+                          <Component id="lblName" linkSize="1" alignment="0" min="-2" pref="52" max="-2" attributes="0"/>
+                          <Component id="lblAge" linkSize="1" alignment="0" min="-2" pref="52" max="-2" attributes="0"/>
+                          <Component id="lblSpeciality" linkSize="1" alignment="0" min="-2" pref="209" max="-2" attributes="0"/>
+                          <Component id="lblPassword" linkSize="1" alignment="0" min="-2" pref="209" max="-2" attributes="0"/>
+                          <Component id="lblUserName" linkSize="1" alignment="0" min="-2" pref="209" max="-2" attributes="0"/>
+                          <Component id="jLabel1" linkSize="1" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblHighestQualification" linkSize="1" alignment="0" min="-2" pref="209" max="-2" attributes="0"/>
+                          <Component id="lblExperience" linkSize="1" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="76" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="txtHighestQualification" alignment="0" max="32767" attributes="0"/>
-                          <Component id="dropHosp" alignment="0" max="32767" attributes="0"/>
-                          <Component id="dropDepartment" alignment="0" max="32767" attributes="0"/>
-                          <Component id="txtExperience" alignment="0" max="32767" attributes="0"/>
-                          <Component id="txtEmail" alignment="0" max="32767" attributes="0"/>
-                          <Component id="txtAge" alignment="0" max="32767" attributes="0"/>
-                          <Component id="txtName" alignment="0" max="32767" attributes="0"/>
-                          <Component id="txtUsername" alignment="0" max="32767" attributes="0"/>
-                          <Component id="txtPassword" alignment="0" max="32767" attributes="0"/>
-                          <Component id="dropGender" alignment="0" pref="100" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="txtUsername" linkSize="3" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
+                          <Component id="txtExperience" linkSize="3" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
+                          <Component id="dropHosp" linkSize="3" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
+                          <Component id="txtName" linkSize="3" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
+                          <Component id="dropGender" linkSize="3" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
+                          <Component id="dropDepartment" linkSize="3" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
+                          <Component id="txtPassword" linkSize="3" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
+                          <Component id="txtEmail" linkSize="3" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
+                          <Component id="txtAge" linkSize="3" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
+                          <Component id="txtHighestQualification" linkSize="3" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
                       </Group>
                   </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
+                      <Component id="lblHeading" min="-2" pref="501" max="-2" attributes="0"/>
+                  </Group>
               </Group>
-              <EmptySpace pref="21" max="32767" attributes="0"/>
+              <EmptySpace pref="78" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
-              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
               <Component id="lblHeading" min="-2" pref="29" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Group type="102" alignment="1" attributes="0">
-                      <Component id="lblName" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="lblAge" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <Component id="txtName" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="txtAge" min="-2" max="-2" attributes="0"/>
-                  </Group>
-              </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lblEmail" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtEmail" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lblUserName" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtUsername" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lblPassword" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtPassword" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="dropGender" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="txtExperience" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="lblExperience" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtName" linkSize="4" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblName" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="dropDepartment" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="lblSpeciality" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtAge" linkSize="4" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblAge" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="dropHosp" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="lblSpeciality1" alignment="0" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="txtHighestQualification" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="lblHighestQualification" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtEmail" linkSize="4" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblEmail" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="txtUsername" linkSize="4" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblUserName" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="txtPassword" linkSize="4" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblPassword" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="dropGender" linkSize="4" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel1" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="txtExperience" linkSize="4" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblExperience" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Component id="dropDepartment" linkSize="4" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblSpeciality" linkSize="2" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Component id="dropHosp" linkSize="4" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblSpeciality1" linkSize="2" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Component id="txtHighestQualification" linkSize="4" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblHighestQualification" linkSize="2" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
               <Component id="btnSignup" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+              <EmptySpace pref="66" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -155,6 +154,12 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnSignup">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="cc" green="cc" red="cc" type="rgb"/>
+        </Property>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Helvetica" size="13" style="1"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Sign up"/>
       </Properties>
       <Events>
@@ -186,7 +191,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="lblHighestQualification">
       <Properties>
-        <Property name="text" type="java.lang.String" value="HighestQualification"/>
+        <Property name="text" type="java.lang.String" value="Highest Qualification"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtAge">
@@ -195,8 +200,11 @@
     </Component>
     <Component class="javax.swing.JLabel" name="lblHeading">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Segoe UI" size="18" style="1"/>
+          <Font name="Times New Roman" size="24" style="1"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
         <Property name="text" type="java.lang.String" value="Nurse Registrtion"/>
