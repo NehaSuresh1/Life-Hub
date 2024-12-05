@@ -81,6 +81,7 @@ public class WorkAreaMainFrame extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/life_hub_ecosystem/data/home-user.png"))); // NOI18N
         jLabel1.setText("User Name");
 
         UserNameTextField.setText("admin");
@@ -91,6 +92,7 @@ public class WorkAreaMainFrame extends javax.swing.JFrame {
             }
         });
 
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/life_hub_ecosystem/data/password-check.png"))); // NOI18N
         jLabel2.setText("Password");
 
         jButton2.setBackground(new java.awt.Color(204, 204, 204));

@@ -78,13 +78,16 @@ public class ManagerMainJPanel extends javax.swing.JPanel {
         tblMealOrders = new javax.swing.JTable();
         btnApprove = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblTitle.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        lblTitle.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitle.setText("Manager Portal");
         add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(-4, 6, 800, 70));
 
+        btnLogout.setBackground(new java.awt.Color(204, 204, 204));
+        btnLogout.setFont(new java.awt.Font("Helvetica", 1, 13)); // NOI18N
         btnLogout.setText("Logout");
         btnLogout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -101,7 +104,7 @@ public class ManagerMainJPanel extends javax.swing.JPanel {
                 {null, null, null, null, null, null, null}
             },
             new String [] {
-                "Order ID", "Patient", "Doctor", "Meal type", "Start date", "Time Period", "is Approved"
+                "Order ID", "Patient", "Doctor", "Meal Type", "Start Date", "Time Period", "is Approved"
             }
         ));
         tblMealOrders.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -113,6 +116,7 @@ public class ManagerMainJPanel extends javax.swing.JPanel {
 
         add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(52, 100, 690, 310));
 
+        btnApprove.setFont(new java.awt.Font("Helvetica", 1, 13)); // NOI18N
         btnApprove.setText("Approve");
         btnApprove.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
