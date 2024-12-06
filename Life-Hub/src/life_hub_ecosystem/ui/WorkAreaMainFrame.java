@@ -182,6 +182,7 @@ public class WorkAreaMainFrame extends javax.swing.JFrame {
             CardSequencePanel.removeAll();
             CardSequencePanel.add("SuperAdmin", sp);
             ((java.awt.CardLayout) CardSequencePanel.getLayout()).next(CardSequencePanel);
+            return;
         }
  
        if(un.equals("adminHospital")&&pw.equals("admin")){
@@ -189,6 +190,7 @@ public class WorkAreaMainFrame extends javax.swing.JFrame {
             CardSequencePanel.removeAll();
             CardSequencePanel.add("adminHospital", sp);
             ((java.awt.CardLayout) CardSequencePanel.getLayout()).next(CardSequencePanel);
+            return;
         }
        
         if(un.equals("adminLab")&&pw.equals("admin")){
@@ -196,6 +198,7 @@ public class WorkAreaMainFrame extends javax.swing.JFrame {
             CardSequencePanel.removeAll();
             CardSequencePanel.add("SuperAdmin", sp);
             ((java.awt.CardLayout) CardSequencePanel.getLayout()).next(CardSequencePanel);
+            return;
         }
  
        if(un.equals("adminPharma")&&pw.equals("admin")){
@@ -203,13 +206,16 @@ public class WorkAreaMainFrame extends javax.swing.JFrame {
             CardSequencePanel.removeAll();
             CardSequencePanel.add("adminHospital", sp);
             ((java.awt.CardLayout) CardSequencePanel.getLayout()).next(CardSequencePanel);
+            return;
         }
         if(un.equals("SuperAdmin")&&pw.equals("admin")){
             SuperAdminJPanel sp=new SuperAdminJPanel(es,CardSequencePanel);
             CardSequencePanel.removeAll();
             CardSequencePanel.add("adminHospital", sp);
             ((java.awt.CardLayout) CardSequencePanel.getLayout()).next(CardSequencePanel);
+            return;
         }
+        
         UserAccount useraccount = uad.AuthenticateUser(un, Password.hasher(pw));
         if (useraccount == null) {
             JOptionPane.showMessageDialog(this, "Username or password is incorrect");
