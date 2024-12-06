@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package life_hub_ecosystem.ui.superAdmin;
+package life_hub_ecosystem.persona.superAdmin;
 
 import life_hub_ecosystem.EcoSystem;
 import life_hub_ecosystem.LifeHubDirectory;

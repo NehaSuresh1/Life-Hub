@@ -6,10 +6,9 @@ package life_hub_ecosystem.ui.superAdmin;
 
 import life_hub_ecosystem.EcoSystem;
 import javax.swing.JPanel;
-
 /**
  *
- * @author Tarun
+ * @author Ojas
  */
 public class SuperAdminJPanel extends javax.swing.JPanel {
 
@@ -130,8 +129,8 @@ public class SuperAdminJPanel extends javax.swing.JPanel {
 
     private void btnEateryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEateryActionPerformed
         // TODO add your handling code here:
-        SuperAdminEateryJPanel hp = new SuperAdminEateryJPanel(es, CardSequencePanel);
-        CardSequencePanel.add("SuperAdminEatery", hp);
+        SuperAdminWellnessKitchenJPanel hp = new SuperAdminWellnessKitchenJPanel(es, CardSequencePanel);
+        CardSequencePanel.add("SuperAdminWellnessKitchen", hp);
         ((java.awt.CardLayout) CardSequencePanel.getLayout()).next(CardSequencePanel);
     }//GEN-LAST:event_btnEateryActionPerformed
 

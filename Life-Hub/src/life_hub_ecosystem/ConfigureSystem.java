@@ -27,7 +27,7 @@ import life_hub_ecosystem.pharmacy.PharmacistProfile;
 public class ConfigureSystem {
 
     public static EcoSystem initialize() {
-        EcoSystem es = new EcoSystem("Health Haven");
+        EcoSystem es = new EcoSystem("Life Hub");
 
         Hospital h1 = es.hospitalDirectory.newHospital("Hospital Branch 1", "02119");
         Hospital h2 = es.hospitalDirectory.newHospital("Hospital Branch 2", "02115");
@@ -49,8 +49,10 @@ public class ConfigureSystem {
 ///////////---------------------------------------------------------
         WellnessKitchen hh1 = es.lifeHubDirectory.newHH("LifeHub branch 1", "02119");
         WellnessKitchen hh2 = es.lifeHubDirectory.newHH("LifeHub branch 2", "02115");
-//        WellnessKitchen hh3 = es.healthHubDirectory.newHH("HealthHub branch 3");
-//        WellnessKitchen hh4 = es.healthHubDirectory.newHH("HealthHub branch 4");
+//        WellnessKitchen hh3 = es.healthHubDirectory.newHH("LifeHub branch 3");
+//        WellnessKitchen hh4 = es.healthHubDirectory.newHH("LifeHub branch 4");
+
+    
 
 ///////////---------------------------------------------------------
         Person person01 = es.personDirectory.newPerson("abc", 24, "abc@gmail.com" , "male");
@@ -106,6 +108,8 @@ public class ConfigureSystem {
 ///////////---------------------------------------------------------
         LifeHubManagerProfile hhm1 = es.lifeHubDirectory.findHH(hh1.getId()).lifeHubManagerDirectory.newManager(person18, "4");
         LifeHubManagerProfile hhm2 = es.lifeHubDirectory.findHH(hh2.getId()).lifeHubManagerDirectory.newManager(person19, "4");
+        
+        
 
 ///////////---------------------------------------------------------
         DelieryAgentProfile da1 = es.lifeHubDirectory.findHH(hh1.getId()).deliveryAgentDirectory.newDA(person20, "02119");
@@ -154,7 +158,7 @@ public class ConfigureSystem {
 
 ///////////--------------------------------------------------------- 
         UserAccountDirectory uadirectory = es.getUseraccountdirectory();
-         UserAccount ua001 = uadirectory.newUserAccount(dp1, dp1.getPerson().getName(), Password.hasher(dp1.getPerson().getName()));
+        UserAccount ua001 = uadirectory.newUserAccount(dp1, dp1.getPerson().getName(), Password.hasher(dp1.getPerson().getName()));
         UserAccount ua002 = uadirectory.newUserAccount(dp2, dp2.getPerson().getName(), Password.hasher(dp2.getPerson().getName())); /// order products for one of the customers and performed by a sales person
         UserAccount ua003 = uadirectory.newUserAccount(dp3, dp3.getPerson().getName(), Password.hasher(dp3.getPerson().getName())); /// order products for one of the customers and performed by a sales person
         UserAccount ua005 = uadirectory.newUserAccount(np1, np1.getPerson().getName(), Password.hasher (np1.getPerson().getName())); /// order products for one of the customers and performed by a sales person
