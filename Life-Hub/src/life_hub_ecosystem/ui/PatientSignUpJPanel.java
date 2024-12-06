@@ -19,7 +19,7 @@ import javax.swing.JPanel;
 
 /**
  *
- * @author srimanth
+ * @author neha
  */
 public class PatientSignUpJPanel extends javax.swing.JPanel {
 
