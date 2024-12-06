@@ -18,7 +18,7 @@ import javax.swing.JPanel;
 
 /**
  *
- * @author srimanth
+ * @author neha
  */
 public class NurseSignUpJPanel extends javax.swing.JPanel {
 
@@ -247,6 +247,23 @@ public class NurseSignUpJPanel extends javax.swing.JPanel {
         //      Check if username exist 
         if(!es.getUseraccountdirectory().isUserNameAvailable(txtUsername.getText())){
             JOptionPane.showMessageDialog(this, "This username exists. use different username");
+            return;
+        }
+        
+        int age;
+        try {
+            age = Integer.parseInt(txtAge.getText());
+            if (age <= 0) {
+                JOptionPane.showMessageDialog(this, "Age must be a positive number.");
+                return;
+            }
+            
+            if (age < 22 || age > 70) {
+                JOptionPane.showMessageDialog(this, "Age must be between 22 and 70.");
+                return;
+            }
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Age must be a valid number.");
             return;
         }
         //    if (!Validator.password(txtPassword.getText())) {

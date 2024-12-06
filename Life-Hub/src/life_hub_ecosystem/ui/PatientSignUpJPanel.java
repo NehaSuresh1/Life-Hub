@@ -19,7 +19,7 @@ import javax.swing.JPanel;
 
 /**
  *
- * @author srimanth
+ * @author neha
  */
 public class PatientSignUpJPanel extends javax.swing.JPanel {
 
@@ -242,47 +242,93 @@ public class PatientSignUpJPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSignupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSignupActionPerformed
-        // TODO add your handling code here:
-        //person = new Person(txt, TOOL_TIP_TEXT_KEY, ABORT, TOOL_TIP_TEXT_KEY)
-     
-        if (txtAge.getText().isBlank() || txtEmail.getText().isBlank() || txtName.getText().isBlank()
-                || txtPassword.getText().isBlank() || txtUsername.getText().isBlank()
+     try {
+        // Validate that all required fields are filled
+        if (txtAge.getText().isBlank() || txtEmail.getText().isBlank() || txtName.getText().isBlank() 
+                || txtPassword.getText().isBlank() || txtUsername.getText().isBlank() 
                 || txtStreetAddress.getText().isBlank() || txtZipcode.getText().isBlank()) {
-            JOptionPane.showMessageDialog(this, "Please enter all details");
+            JOptionPane.showMessageDialog(this, "Please enter all details.");
             return;
         }
-        
+
+        // Validate username length
         if (txtUsername.getText().length() < 6 || txtUsername.getText().length() > 20) {
             JOptionPane.showMessageDialog(this, "Username must be between 6 and 20 characters.");
             return;
         }
-        
-//      Check if username exist 
-        if(!es.getUseraccountdirectory().isUserNameAvailable(txtUsername.getText())){
-            JOptionPane.showMessageDialog(this, "This username exists. use different username");
+
+        // Check if username already exists
+        if (!es.getUseraccountdirectory().isUserNameAvailable(txtUsername.getText())) {
+            JOptionPane.showMessageDialog(this, "This username already exists. Please use a different username.");
             return;
         }
         
-//        }  if (!Validator.password(txtPassword.getText())) {
-//            JOptionPane.showMessageDialog(this, "Enter valid password");
+            // Validate state selection
+        if (dropState.getSelectedItem().toString().equals("Select")) {
+            JOptionPane.showMessageDialog(this, "Please select a valid state.");
+            return;
+        }
+
+//        // Validate password using Validator class
+//        if (!Validator.password(txtPassword.getText())) {
+//            JOptionPane.showMessageDialog(this, "Enter a valid password. Password must meet the required criteria.");
 //            return;
 //        }
+
+        // Validate email format using Validator class
         if (!Validator.email(txtEmail.getText())) {
-            JOptionPane.showMessageDialog(this, "Enter valid email");
-        } else {
-            PersonDirectory pd = new PersonDirectory();
-            Person currentPerson = pd.newPerson(txtName.getText(), Integer.parseInt(txtAge.getText()), txtEmail.getText(), (String) dropGender.getSelectedItem());
-
-            PatientProfile patientProfile = patientDirectory.newPatient(dropDietary.getSelectedItem().toString(),
-                    txtStreetAddress.getText(), txtCity.getText(), dropState.getSelectedItem().toString(),
-                    txtZipcode.getText(), currentPerson,
-                    es.getHospitalDirectory().findHospitalByZipcode(txtZipcode.getText()));
-            es.getUseraccountdirectory().newUserAccount(patientProfile, txtUsername.getText(), Password.hasher(txtPassword.getText()));
-            
-            
-            JOptionPane.showMessageDialog(this, "Patient registered successfully!");
-
+            JOptionPane.showMessageDialog(this, "Enter a valid email address.");
+            return;
         }
+
+        // Validate age is a positive integer
+        int age;
+        try {
+            age = Integer.parseInt(txtAge.getText());
+            if (age <= 0) {
+                JOptionPane.showMessageDialog(this, "Age must be a positive number.");
+                return;
+            }
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Age must be a valid number.");
+            return;
+        }
+
+        // Validate zipcode format (assuming it should be numeric and of specific length)
+        if (!txtZipcode.getText().matches("\\d{5}")) { // Example: US ZIP code validation
+            JOptionPane.showMessageDialog(this, "Enter a valid 5-digit ZIP code.");
+            return;
+        }
+
+        // Create new Person and PatientProfile objects
+        PersonDirectory pd = new PersonDirectory();
+        Person currentPerson = pd.newPerson(
+                txtName.getText(),
+                age,
+                txtEmail.getText(),
+                (String) dropGender.getSelectedItem()
+        );
+
+        PatientProfile patientProfile = patientDirectory.newPatient(
+                dropDietary.getSelectedItem().toString(),
+                txtStreetAddress.getText(),
+                txtCity.getText(),
+                dropState.getSelectedItem().toString(),
+                txtZipcode.getText(),
+                currentPerson,
+                es.getHospitalDirectory().findHospitalByZipcode(txtZipcode.getText())
+        );
+
+        // Create a new user account
+        es.getUseraccountdirectory().newUserAccount(patientProfile, txtUsername.getText(), Password.hasher(txtPassword.getText()));
+
+        // Display success message
+        JOptionPane.showMessageDialog(this, "Patient registered successfully!");
+
+    } catch (Exception e) {
+        // Catch any unexpected errors and display an error message
+        JOptionPane.showMessageDialog(this, "An unexpected error occurred: " + e.getMessage());
+    }
     }//GEN-LAST:event_btnSignupActionPerformed
 
     private void dropGenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dropGenderActionPerformed

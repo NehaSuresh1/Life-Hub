@@ -14,7 +14,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 /**
  *
- * @author srimanth
+ * @author neha
  */
 public class PharmacistSignUpJPanel extends javax.swing.JPanel {
 
@@ -213,6 +213,23 @@ public class PharmacistSignUpJPanel extends javax.swing.JPanel {
         }
         if (txtUsername.getText().length() < 6 || txtUsername.getText().length() > 20) {
             JOptionPane.showMessageDialog(this, "Username must be between 6 and 20 characters.");
+            return;
+        }
+        
+        int age;
+        try {
+            age = Integer.parseInt(txtAge.getText());
+            if (age <= 0) {
+                JOptionPane.showMessageDialog(this, "Age must be a positive number.");
+                return;
+            }
+            
+            if (age < 22 || age > 70) {
+                JOptionPane.showMessageDialog(this, "Age must be between 22 and 70.");
+                return;
+            }
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Age must be a valid number.");
             return;
         }
         

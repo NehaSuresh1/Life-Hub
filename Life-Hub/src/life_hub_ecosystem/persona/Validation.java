@@ -28,17 +28,30 @@ public class Validation {
 //        
 //    }
 
-    public boolean email(String email)
-    {
-      String regex="^[A-Za-z0-9+_.-]+@(.+)$";
+//    public boolean email(String email)
+//    {
+//      String regex="^[A-Za-z0-9+_.-]+@(.+)$";
+//        Pattern pattern = Pattern.compile(regex);
+//        Matcher matcher = pattern.matcher(email);
+//        
+//        if(matcher.matches()) {
+//          return true;
+//        } else {
+//           return false;
+//        } 
+//    }
+    
+    public boolean email(String email) {
+        // Enhanced regex for validating email addresses
+        String regex = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$";
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(email);
-        
-        if(matcher.matches()) {
-          return true;
+
+        if (matcher.matches()) {
+            return true;
         } else {
-           return false;
-        } 
-    }  
+            return false;
+        }
+    }
     
 }
