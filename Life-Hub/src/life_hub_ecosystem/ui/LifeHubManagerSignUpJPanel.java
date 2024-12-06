@@ -16,7 +16,7 @@ import javax.swing.JPanel;
 
 /**
  *
- * @author srimanth
+ * @author neha
  */
 public class LifeHubManagerSignUpJPanel extends javax.swing.JPanel {
 
