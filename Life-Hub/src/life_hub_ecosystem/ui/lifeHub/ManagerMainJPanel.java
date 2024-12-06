@@ -28,13 +28,13 @@ public class ManagerMainJPanel extends javax.swing.JPanel {
      * Creates new form PharmacistMainJPanel
      */
     EcoSystem es;
-    LifeHubManagerProfile hhmp;
+    LifeHubManagerProfile lhmp;
     javax.swing.JPanel CardSequencePanel;
     MealOrder selectedMealorder;
 
-    public ManagerMainJPanel(EcoSystem es, LifeHubManagerProfile hhmp, JPanel clp) {
+    public ManagerMainJPanel(EcoSystem es, LifeHubManagerProfile lhmp, JPanel clp) {
         this.es = es;
-        this.hhmp = hhmp;
+        this.lhmp = lhmp;
         this.CardSequencePanel = clp;
         initComponents();
         refreshMedsTable();
