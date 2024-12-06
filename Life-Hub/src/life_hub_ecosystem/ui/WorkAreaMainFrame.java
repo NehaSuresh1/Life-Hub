@@ -68,6 +68,7 @@ public class WorkAreaMainFrame extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(1018, 673));
 
         actionsidejpanel.setBackground(new java.awt.Color(204, 255, 255));
         actionsidejpanel.setMinimumSize(new java.awt.Dimension(200, 200));
@@ -104,7 +105,7 @@ public class WorkAreaMainFrame extends javax.swing.JFrame {
             }
         });
 
-        ddUser.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Patient", "Doctor", "Nurse", "Lab Ast","Pharmacist","Manager" }));
+        ddUser.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Patient", "Doctor", "Nurse", "Lab Assitant","Pharmacist","LifeHub Manager"}) );
         ddUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ddUserActionPerformed(evt);
@@ -116,21 +117,27 @@ public class WorkAreaMainFrame extends javax.swing.JFrame {
         actionsidejpanelLayout.setHorizontalGroup(
             actionsidejpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(actionsidejpanelLayout.createSequentialGroup()
+                .addGap(10, 10, 10)
                 .addGroup(actionsidejpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(actionsidejpanelLayout.createSequentialGroup()
-                        .addGap(10, 10, 10)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(actionsidejpanelLayout.createSequentialGroup()
                         .addGroup(actionsidejpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1)
-                            .addComponent(UserNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2)
-                            .addComponent(PasswordTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING)))
+                            .addComponent(jLabel2))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(actionsidejpanelLayout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addGroup(actionsidejpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(ddUser, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(37, 37, 37))
+                        .addGroup(actionsidejpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(PasswordTextField, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(UserNameTextField))
+                        .addContainerGap())))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, actionsidejpanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(actionsidejpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton2)
+                    .addComponent(ddUser, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
         actionsidejpanelLayout.setVerticalGroup(
             actionsidejpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -143,11 +150,11 @@ public class WorkAreaMainFrame extends javax.swing.JFrame {
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(PasswordTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(26, 26, 26)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(92, 92, 92)
+                .addGap(84, 84, 84)
                 .addComponent(ddUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(27, 27, 27)
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -158,7 +165,11 @@ public class WorkAreaMainFrame extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("DialogInput", 1, 24)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/life_hub_ecosystem/data/health-report.png"))); // NOI18N
         jLabel3.setText("LIFE HUB");
+        jLabel3.setMaximumSize(new java.awt.Dimension(117, 100));
+        jLabel3.setMinimumSize(new java.awt.Dimension(117, 100));
+        jLabel3.setPreferredSize(new java.awt.Dimension(117, 100));
         CardSequencePanel.add(jLabel3, "card2");
 
         SplitHomeArea.setRightComponent(CardSequencePanel);
@@ -278,7 +289,7 @@ public class WorkAreaMainFrame extends javax.swing.JFrame {
             LabAssistantProfile pp = (LabAssistantProfile) profile;
             labAssistantMainJPanel = new LabAssistantMainJPanel(es, pp, CardSequencePanel);
             CardSequencePanel.removeAll();
-            CardSequencePanel.add("lab assistant", labAssistantMainJPanel);
+            CardSequencePanel.add("lab as", labAssistantMainJPanel);
             ((java.awt.CardLayout) CardSequencePanel.getLayout()).next(CardSequencePanel);
         }
         if (profile instanceof PharmacistProfile) {
@@ -341,7 +352,7 @@ public class WorkAreaMainFrame extends javax.swing.JFrame {
             CardSequencePanel.add("Nurse", NurseSignUpJPanel);
             ((java.awt.CardLayout) CardSequencePanel.getLayout()).next(CardSequencePanel);
         }
-        if ("Lab Ast".toLowerCase().equals((ddUser.getSelectedItem()).toString().toLowerCase())) {
+        if ("Lab Assitant".toLowerCase().equals((ddUser.getSelectedItem()).toString().toLowerCase())) {
 
             LabAssistantSignUpJPanel LabAssistantSignUpJPanel = new LabAssistantSignUpJPanel(CardSequencePanel, es);
             CardSequencePanel.removeAll();
@@ -356,7 +367,7 @@ public class WorkAreaMainFrame extends javax.swing.JFrame {
             CardSequencePanel.add(" Pharmacist", PharmacistSignUpJPanel);
             ((java.awt.CardLayout) CardSequencePanel.getLayout()).next(CardSequencePanel);
         }
-        if ("Manager".toLowerCase().equals((ddUser.getSelectedItem()).toString().toLowerCase())) {
+        if ("Kitchen Manager".toLowerCase().equals((ddUser.getSelectedItem()).toString().toLowerCase())) {
             LifeHubManagerSignUpJPanel LifeHubManagerSignUpJPanel = new LifeHubManagerSignUpJPanel(CardSequencePanel, es);
             CardSequencePanel.removeAll();
             CardSequencePanel.add(" LifeHubManager", LifeHubManagerSignUpJPanel);
