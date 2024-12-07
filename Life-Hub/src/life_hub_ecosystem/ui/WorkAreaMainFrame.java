@@ -367,10 +367,10 @@ public class WorkAreaMainFrame extends javax.swing.JFrame {
             CardSequencePanel.add(" Pharmacist", PharmacistSignUpJPanel);
             ((java.awt.CardLayout) CardSequencePanel.getLayout()).next(CardSequencePanel);
         }
-        if ("Kitchen Manager".toLowerCase().equals((ddUser.getSelectedItem()).toString().toLowerCase())) {
+        if ("LifeHub Manager".toLowerCase().equals((ddUser.getSelectedItem()).toString().toLowerCase())) {
             LifeHubManagerSignUpJPanel LifeHubManagerSignUpJPanel = new LifeHubManagerSignUpJPanel(CardSequencePanel, es);
             CardSequencePanel.removeAll();
-            CardSequencePanel.add(" LifeHubManager", LifeHubManagerSignUpJPanel);
+            CardSequencePanel.add("LifeHubManager", LifeHubManagerSignUpJPanel);
             ((java.awt.CardLayout) CardSequencePanel.getLayout()).next(CardSequencePanel);
 
         }
