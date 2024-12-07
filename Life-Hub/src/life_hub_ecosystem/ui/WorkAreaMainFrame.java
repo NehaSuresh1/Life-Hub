@@ -246,7 +246,7 @@ public class WorkAreaMainFrame extends javax.swing.JFrame {
         PharmacistMainJPanel pharmacistMainJPanel;
         LabAssistantMainJPanel labAssistantMainJPanel;
         ManagerMainJPanel managerMainJPanel;
-        //DeliveryAgentMainJPanel deliveryAgentMainJPanel;
+//        DeliveryAgentMainJPanel deliveryAgentMainJPanel;
 
         String r = useraccount.getRole();
         Profile profile = useraccount.getAssociatedPersonProfile();
