@@ -13,7 +13,7 @@ import life_hub_ecosystem.hospital.profiles.PatientDirectory;
 
 /**
  *
- * @author marri
+ * @author ojas
  */
 public class Hospital {
 

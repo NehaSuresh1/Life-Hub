@@ -8,7 +8,7 @@ import life_hub_ecosystem.lab.persona.LabAssistantDirectory;
 
 /**
  *
- * @author marri
+ * @author ojas
  */
 public class Lab {
 
