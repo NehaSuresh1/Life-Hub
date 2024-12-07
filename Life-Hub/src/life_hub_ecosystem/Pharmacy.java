@@ -8,7 +8,7 @@ import life_hub_ecosystem.pharmacy.PharmacistDirectory;
 
 /**
  *
- * @author marri
+ * @author ojas
  */
 public class Pharmacy {
 

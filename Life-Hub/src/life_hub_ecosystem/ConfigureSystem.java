@@ -22,7 +22,7 @@ import life_hub_ecosystem.pharmacy.PharmacistProfile;
 
 /**
  *
- * @author marri
+ * @author ojas
  */
 public class ConfigureSystem {
 
