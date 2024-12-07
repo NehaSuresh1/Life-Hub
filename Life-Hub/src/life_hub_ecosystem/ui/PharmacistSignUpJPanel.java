@@ -88,7 +88,7 @@ public class PharmacistSignUpJPanel extends javax.swing.JPanel {
 
         lblHeading.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         lblHeading.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblHeading.setText("Pharmacist  Registrtion");
+        lblHeading.setText("Pharmacist  Registration");
 
         lblSpeciality1.setText("Pharmacy");
 

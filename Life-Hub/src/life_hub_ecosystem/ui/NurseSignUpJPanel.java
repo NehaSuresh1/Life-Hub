@@ -111,7 +111,7 @@ public class NurseSignUpJPanel extends javax.swing.JPanel {
         lblHeading.setBackground(new java.awt.Color(255, 255, 255));
         lblHeading.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         lblHeading.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblHeading.setText("Nurse Registrtion");
+        lblHeading.setText("Nurse Registration");
 
         lblSpeciality1.setText("Hospital");
 

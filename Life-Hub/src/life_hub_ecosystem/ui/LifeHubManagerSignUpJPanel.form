@@ -23,10 +23,6 @@
                       <Component id="lblHeading" min="-2" pref="501" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="230" max="-2" attributes="0"/>
-                      <Component id="btnSignup" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="157" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="lblUserName" min="-2" pref="71" max="-2" attributes="0"/>
@@ -51,6 +47,10 @@
                           <Component id="txtExperience" max="32767" attributes="0"/>
                           <Component id="dropLab" alignment="0" max="32767" attributes="0"/>
                       </Group>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="232" max="-2" attributes="0"/>
+                      <Component id="btnSignup" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace pref="69" max="32767" attributes="0"/>
@@ -102,9 +102,9 @@
                   <Component id="dropLab" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="lblSpeciality1" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="23" max="32767" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="btnSignup" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+              <EmptySpace pref="45" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -164,7 +164,7 @@
           <Font name="Segoe UI" size="18" style="1"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
-        <Property name="text" type="java.lang.String" value="Manager Registrtion"/>
+        <Property name="text" type="java.lang.String" value="Manager Registration"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JComboBox" name="dropGender">

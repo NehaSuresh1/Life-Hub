@@ -101,7 +101,7 @@ public class PatientSignUpJPanel extends javax.swing.JPanel {
 
         lblHeading.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         lblHeading.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblHeading.setText("Patient Registrtion");
+        lblHeading.setText("Patient Registration");
 
         dropGender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "male", "female" }));
         dropGender.addActionListener(new java.awt.event.ActionListener() {
