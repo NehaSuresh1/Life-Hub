@@ -86,7 +86,7 @@ public class LabAssistantSignUpJPanel extends javax.swing.JPanel {
 
         lblHeading.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         lblHeading.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblHeading.setText("Lab Assistant Registrtion");
+        lblHeading.setText("Lab Assistant Registration");
 
         dropLab.setModel(new javax.swing.DefaultComboBoxModel<>(es.getLabDirectory().getList()));
 
