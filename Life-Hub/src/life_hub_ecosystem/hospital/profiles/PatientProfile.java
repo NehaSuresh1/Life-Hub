@@ -125,7 +125,7 @@ public class PatientProfile extends Profile {
 
     @Override
     public String getRole() {
-        return "Nurse";
+        return "Patient";
     }
 
     @Override

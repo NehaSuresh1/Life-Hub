@@ -68,6 +68,7 @@ public class WorkAreaMainFrame extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
         setMinimumSize(new java.awt.Dimension(1000, 800));
         setPreferredSize(new java.awt.Dimension(800, 700));
 
@@ -100,7 +101,7 @@ public class WorkAreaMainFrame extends javax.swing.JFrame {
             }
         });
 
-        ddUser.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Patient", "Doctor", "Nurse", "Lab Assitant","Pharmacist","LifeHub Manager"}) );
+        ddUser.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Patient", "Doctor", "Nurse", "Lab Assitant","Pharmacist","LifeHub Manager", "Delivery Agent"}) );
         ddUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ddUserActionPerformed(evt);
@@ -353,6 +354,15 @@ public class WorkAreaMainFrame extends javax.swing.JFrame {
             ((java.awt.CardLayout) CardSequencePanel.getLayout()).next(CardSequencePanel);
 
         }
+        
+        if ("Delivery Agent".toLowerCase().equals((ddUser.getSelectedItem()).toString().toLowerCase())) {
+            DeliveryAgentSignUpJPanel DeliveryAgentSignUpJPanel = new DeliveryAgentSignUpJPanel(CardSequencePanel, es);
+            CardSequencePanel.removeAll();
+            CardSequencePanel.add("DeliveryAgent", DeliveryAgentSignUpJPanel);
+            ((java.awt.CardLayout) CardSequencePanel.getLayout()).next(CardSequencePanel);
+
+        }
+        
     }//GEN-LAST:event_jButton2LoginButtonActionPerformed
 
     private void ddUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ddUserActionPerformed

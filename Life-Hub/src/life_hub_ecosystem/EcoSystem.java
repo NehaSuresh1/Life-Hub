@@ -13,6 +13,7 @@ import life_hub_ecosystem.lab.TestReportDirectory;
 import life_hub_ecosystem.persona.PersonDirectory;
 import life_hub_ecosystem.persona.UserAccountDirectory;
 import life_hub_ecosystem.pharmacy.PharmaOrderDirectory;
+import life_hub_ecosystem.wellness_kitchen.persona.DeliveryAgentDirectory;
 
 /**
  *
@@ -34,6 +35,7 @@ public class EcoSystem {
     TestReportDirectory testReportDirectory;
     MealOrderDirectory mealOrderDirectory;
     MealDirectory mealDirectory;
+    DeliveryAgentDirectory deliveryAgentDirectory;
 
     public EcoSystem(String name) {
         this.name = name;
@@ -104,4 +106,8 @@ public class EcoSystem {
     public LifeHubDirectory getLifeHubDirectory() {
         return lifeHubDirectory;
     }
+    
+//    public DeliveryAgentDirectory getDeliveryAgentDirectory(){
+//        return deliveryAgentDirectory;
+//    }
 }
