@@ -4,6 +4,15 @@
  */
 package life_hub_ecosystem.ui.labAssistant;
 
+import javax.mail.PasswordAuthentication;
+import javax.mail.Session;
+import javax.mail.Message;
+import javax.mail.internet.MimeMessage;
+import javax.mail.internet.InternetAddress;
+import javax.mail.Transport;
+import javax.mail.MessagingException;
+
+
 import life_hub_ecosystem.EcoSystem;
 import life_hub_ecosystem.hospital.profiles.PatientProfile;
 import life_hub_ecosystem.lab.LabOrder;
@@ -12,13 +21,14 @@ import life_hub_ecosystem.lab.TestReport;
 import life_hub_ecosystem.lab.persona.LabAssistantProfile;
 
 import java.util.ArrayList;
+import java.util.Properties;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author marri
+ * @author ojas
  */
 public class LabAssistantMainJPanel extends javax.swing.JPanel {
 
@@ -87,6 +97,8 @@ public class LabAssistantMainJPanel extends javax.swing.JPanel {
         btnLogout = new javax.swing.JButton();
         dropResult = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
+        txtNotify = new javax.swing.JTextField();
+        btnNotify = new javax.swing.JButton();
 
         setLayout(null);
 
@@ -124,7 +136,7 @@ public class LabAssistantMainJPanel extends javax.swing.JPanel {
             }
         });
         add(btnCompleteTest);
-        btnCompleteTest.setBounds(590, 360, 120, 23);
+        btnCompleteTest.setBounds(590, 340, 120, 23);
 
         btnLogout.setText("Logout");
         btnLogout.addActionListener(new java.awt.event.ActionListener() {
@@ -133,15 +145,32 @@ public class LabAssistantMainJPanel extends javax.swing.JPanel {
             }
         });
         add(btnLogout);
-        btnLogout.setBounds(90, 360, 90, 23);
+        btnLogout.setBounds(90, 400, 90, 23);
 
         dropResult.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Good","Bad" }));
         add(dropResult);
-        dropResult.setBounds(490, 360, 72, 22);
+        dropResult.setBounds(490, 340, 72, 22);
 
         jLabel1.setText("Test Result");
         add(jLabel1);
-        jLabel1.setBounds(400, 360, 70, 20);
+        jLabel1.setBounds(400, 340, 70, 20);
+
+        txtNotify.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNotifyActionPerformed(evt);
+            }
+        });
+        add(txtNotify);
+        txtNotify.setBounds(400, 390, 170, 40);
+
+        btnNotify.setText("Notify");
+        btnNotify.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNotifyActionPerformed(evt);
+            }
+        });
+        add(btnNotify);
+        btnNotify.setBounds(590, 400, 120, 23);
     }// </editor-fold>//GEN-END:initComponents
 
     private void tblOrdersMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblOrdersMousePressed
@@ -183,14 +212,156 @@ public class LabAssistantMainJPanel extends javax.swing.JPanel {
         refreshOrdersTable();
     }//GEN-LAST:event_btnCompleteTestActionPerformed
 
+    private void txtNotifyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNotifyActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNotifyActionPerformed
+
+    private void btnNotifyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNotifyActionPerformed
+        // TODO add your handling code here:
+//        try {
+//        // Check if a patient is selected from the orders table
+//        if (selectedPP == null) {
+//            JOptionPane.showMessageDialog(this, "Please select a patient first.");
+//            return;
+//        }
+//
+//        // Get the patient's email and name from the selected patient profile
+//        String patientEmail = selectedPP.getPerson().getEmail();
+//        String patientName = selectedPP.getPerson().getName();
+//
+//        // Check if the email is available
+//        if (patientEmail == null || patientEmail.isEmpty()) {
+//            JOptionPane.showMessageDialog(this, "This patient does not have an email address.");
+//            return;
+//        }
+//
+//        // Get the message content from the txtNotify text field
+//        String messageContent = txtNotify.getText();
+//        if (messageContent == null || messageContent.isEmpty()) {
+//            JOptionPane.showMessageDialog(this, "Please enter a message to send.");
+//            return;
+//        }
+//
+//        // Send the notification email
+//        sendNotificationEmail(patientEmail, patientName, messageContent);
+//
+//    } catch (Exception e) {
+//        JOptionPane.showMessageDialog(this, "Error sending notification: " + e.getMessage());
+//    }
+//}
+//
+//private void sendNotificationEmail(String email, String patientName, String messageContent) {
+//    // Email subject and body
+//    String subject = "Test Report Notification";
+//    String body = "Dear " + patientName + ",\n\n" + messageContent + "\n\nThank you for using our services.";
+//
+//    try {
+//        // Setup the mail server properties (e.g., for Gmail SMTP server)
+//        Properties properties = new Properties();
+//        properties.setProperty("mail.smtp.host", "smtp.example.com"); // Replace with actual SMTP host (e.g., smtp.gmail.com)
+//        properties.setProperty("mail.smtp.port", "587"); // Port for TLS
+//        properties.setProperty("mail.smtp.auth", "true");
+//        properties.setProperty("mail.smtp.starttls.enable", "true");
+//
+//        // Set up session with email credentials (replace with actual sender email and password)
+//        Session session = Session.getInstance(properties, new javax.mail.Authenticator() {
+//            protected PasswordAuthentication getPasswordAuthentication() {
+//                return new PasswordAuthentication("petebadger3@gmail.com", "jsva fhhh egba ybhh"); // Use app password for Gmail
+//            }
+//        });
+//
+//        // Create a MimeMessage for the email
+//        MimeMessage message = new MimeMessage(session);
+//        message.setFrom(new InternetAddress("petebadger3@gmail.com"));
+//        message.addRecipient(Message.RecipientType.TO, new InternetAddress(email));
+//        message.setSubject(subject);
+//        message.setText(body);
+//
+//        // Send the email
+//        Transport.send(message);
+//        JOptionPane.showMessageDialog(this, "Notification sent successfully to " + patientName + "!");
+//
+//    } catch (MessagingException mex) {
+//        // Handle any exceptions
+//        mex.printStackTrace();
+//        JOptionPane.showMessageDialog(this, "Error sending email: " + mex.getMessage());
+//    }
+        try {
+        // Check if a patient is selected
+        if (selectedPP == null) {
+            JOptionPane.showMessageDialog(this, "Please select a patient from the table.");
+            return;
+        }
+
+        // Extract the patient's email and name from the selected patient profile
+        String patientEmail = selectedPP.getPerson().getEmail();  // Assuming getEmail() retrieves the patient's email
+        String patientName = selectedPP.getPerson().getName();    // Assuming getName() retrieves the patient's name
+        
+        // Extract the message from the text field
+        String messageText = txtNotify.getText().trim();
+        if (messageText.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please enter a message before sending.");
+            return;
+        }
+
+        // Send the notification email
+        sendNotificationEmail(patientEmail, patientName, messageText);
+        
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(this, "Error sending notification: " + e.getMessage());
+    }
+}
+
+private void sendNotificationEmail(String email, String patientName, String messageText) {
+    // Email subject and body
+    String subject = "Notification from Lab Assistant";
+    String body = "Dear " + patientName + ",\n\n" + messageText + "\n\nBest regards,\nLab Assistant Team";
+
+    try {
+        // SMTP server configuration (Gmail SMTP example)
+        Properties properties = new Properties();
+        properties.put("mail.smtp.host", "smtp.gmail.com");  // Use Gmail's SMTP server
+        properties.put("mail.smtp.port", "587");  // TLS port
+        properties.put("mail.smtp.auth", "true");
+        properties.put("mail.smtp.starttls.enable", "true");  // Enable TLS
+
+        // Set up the session with Gmail's SMTP server credentials
+        Session session = Session.getInstance(properties, new javax.mail.Authenticator() {
+            protected PasswordAuthentication getPasswordAuthentication() {
+                // Use your email credentials here
+                return new PasswordAuthentication("petebadger3@gmail.com", "jsva fhhh egba ybhh");  // Replace with your credentials
+            }
+        });
+
+        // Create a new email message
+        MimeMessage message = new MimeMessage(session);
+        message.setFrom(new InternetAddress("petebadger3@gmail.com"));  // Replace with your email address
+        message.addRecipient(Message.RecipientType.TO, new InternetAddress(email));  // Recipient's email
+        message.setSubject(subject);  // Set the subject of the email
+        message.setText(body);  // Set the body content of the email
+
+        // Send the email
+        Transport.send(message);
+        JOptionPane.showMessageDialog(this, "Notification sent successfully to " + patientName + "!");
+
+    } catch (MessagingException mex) {
+        mex.printStackTrace();
+        JOptionPane.showMessageDialog(this, "Error sending email: " + mex.getMessage());
+    }
+        
+    
+    }//GEN-LAST:event_btnNotifyActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCompleteTest;
     private javax.swing.JButton btnLogout;
+    private javax.swing.JButton btnNotify;
     private javax.swing.JComboBox<String> dropResult;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JTable tblOrders;
+    private javax.swing.JTextField txtNotify;
     // End of variables declaration//GEN-END:variables
 }

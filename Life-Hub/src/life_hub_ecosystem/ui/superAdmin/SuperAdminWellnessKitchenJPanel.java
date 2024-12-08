@@ -11,7 +11,7 @@ import javax.swing.JPanel;
 
 /**
  *
- * @author Tarun
+ * @author ojas
  */
 public class SuperAdminWellnessKitchenJPanel extends javax.swing.JPanel {
 
@@ -136,7 +136,7 @@ public class SuperAdminWellnessKitchenJPanel extends javax.swing.JPanel {
 
     private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
         // TODO add your handling code here:
-        LifeHubDirectory hh= es.getHealthHubDirectory();
+        LifeHubDirectory hh= es.getLifeHubDirectory();
         hh.newHH(jTextField1.getText(), jTextField2.getText());
         jTextField1.setText("      ");
         jTextField2.setText("      ");

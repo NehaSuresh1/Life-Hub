@@ -7,7 +7,7 @@ package life_hub_ecosystem.persona;
 
 /**
  *
- * @author marri
+ * @author ojas
  */
 public class Person {
 
