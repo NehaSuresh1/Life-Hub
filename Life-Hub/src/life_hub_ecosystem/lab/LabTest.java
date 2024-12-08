@@ -6,7 +6,7 @@ package life_hub_ecosystem.lab;
 
 /**
  *
- * @author marri
+ * @author hemin
  */
 public class LabTest {
 

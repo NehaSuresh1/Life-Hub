@@ -9,7 +9,7 @@ import java.util.HashMap;
 
 /**
  *
- * @author marri
+ * @author ojas
  */
 public class MealPlan {
 

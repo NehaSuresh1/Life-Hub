@@ -15,7 +15,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author marri
+ * @author neha
  */
 public class AppointmentJPanel extends javax.swing.JPanel {
 
@@ -111,7 +111,7 @@ public class AppointmentJPanel extends javax.swing.JPanel {
                 {null, null, null, null}
             },
             new String [] {
-                "Doctor", "Meds", "Lab Tests", "Has Compleed"
+                "Doctor", "Meds", "Lab Tests", "Has Completed"
             }
         ));
         tblAppts.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -122,22 +122,22 @@ public class AppointmentJPanel extends javax.swing.JPanel {
         jScrollPane1.setViewportView(tblAppts);
 
         add(jScrollPane1);
-        jScrollPane1.setBounds(40, 70, 800, 220);
+        jScrollPane1.setBounds(40, 70, 720, 220);
 
         lblTitle.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblTitle.setText("Doctors List");
         add(lblTitle);
         lblTitle.setBounds(40, 300, 140, 40);
 
-        btnRegister.setText("Book appointment");
+        btnRegister.setText("Book Appointment");
         btnRegister.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRegisterActionPerformed(evt);
             }
         });
         add(btnRegister);
-        btnRegister.setBounds(640, 520, 130, 23);
+        btnRegister.setBounds(570, 530, 131, 23);
 
         btnBack.setText("Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
@@ -152,7 +152,7 @@ public class AppointmentJPanel extends javax.swing.JPanel {
         lblTitle1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitle1.setText("Appointment");
         add(lblTitle1);
-        lblTitle1.setBounds(0, -4, 910, 70);
+        lblTitle1.setBounds(110, 10, 560, 40);
 
         tbCourses.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -162,7 +162,7 @@ public class AppointmentJPanel extends javax.swing.JPanel {
                 {null, null, null}
             },
             new String [] {
-                "Doctor name", "Speciality", "Experience"
+                "Doctor's Name", "Speciality", "Experience"
             }
         ));
         tbCourses.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -173,7 +173,7 @@ public class AppointmentJPanel extends javax.swing.JPanel {
         jScrollPane2.setViewportView(tbCourses);
 
         add(jScrollPane2);
-        jScrollPane2.setBounds(40, 350, 800, 160);
+        jScrollPane2.setBounds(40, 350, 720, 160);
     }// </editor-fold>//GEN-END:initComponents
 
     private void tblApptsMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblApptsMousePressed

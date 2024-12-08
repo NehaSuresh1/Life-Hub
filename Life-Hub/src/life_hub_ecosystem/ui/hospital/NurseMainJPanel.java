@@ -105,7 +105,7 @@ public class NurseMainJPanel extends javax.swing.JPanel {
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitle.setText("Patient MealPlan Status");
         add(lblTitle);
-        lblTitle.setBounds(0, 270, 790, 40);
+        lblTitle.setBounds(0, 260, 790, 40);
 
         btnLogout.setText("Logout");
         btnLogout.addActionListener(new java.awt.event.ActionListener() {
@@ -114,7 +114,7 @@ public class NurseMainJPanel extends javax.swing.JPanel {
             }
         });
         add(btnLogout);
-        btnLogout.setBounds(60, 520, 72, 23);
+        btnLogout.setBounds(70, 520, 72, 23);
 
         tbCourses.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -135,7 +135,7 @@ public class NurseMainJPanel extends javax.swing.JPanel {
         jScrollPane1.setViewportView(tbCourses);
 
         add(jScrollPane1);
-        jScrollPane1.setBounds(70, 80, 640, 180);
+        jScrollPane1.setBounds(70, 70, 640, 180);
 
         tbCourses1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -156,7 +156,7 @@ public class NurseMainJPanel extends javax.swing.JPanel {
         jScrollPane2.setViewportView(tbCourses1);
 
         add(jScrollPane2);
-        jScrollPane2.setBounds(70, 320, 640, 180);
+        jScrollPane2.setBounds(70, 310, 640, 180);
 
         lblTitle1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         lblTitle1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);

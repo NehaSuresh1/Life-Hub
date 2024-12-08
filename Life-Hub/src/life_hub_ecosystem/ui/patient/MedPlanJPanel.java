@@ -18,7 +18,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author marri
+ * @author neha
  */
 public class MedPlanJPanel extends javax.swing.JPanel {
 

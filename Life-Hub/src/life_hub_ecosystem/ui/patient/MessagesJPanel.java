@@ -13,7 +13,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author marri
+ * @author ojas
  */
 public class MessagesJPanel extends javax.swing.JPanel {
 
@@ -75,7 +75,7 @@ public class MessagesJPanel extends javax.swing.JPanel {
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitle.setText("Patient MealPlan Status");
         add(lblTitle);
-        lblTitle.setBounds(0, 0, 790, 50);
+        lblTitle.setBounds(50, 10, 500, 50);
 
         tbCourses.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -96,7 +96,7 @@ public class MessagesJPanel extends javax.swing.JPanel {
         jScrollPane1.setViewportView(tbCourses);
 
         add(jScrollPane1);
-        jScrollPane1.setBounds(80, 90, 640, 240);
+        jScrollPane1.setBounds(30, 90, 640, 240);
 
         btnBack.setText("Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
@@ -105,7 +105,7 @@ public class MessagesJPanel extends javax.swing.JPanel {
             }
         });
         add(btnBack);
-        btnBack.setBounds(50, 370, 110, 30);
+        btnBack.setBounds(40, 350, 110, 30);
     }// </editor-fold>//GEN-END:initComponents
 
     private void tbCoursesMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbCoursesMousePressed
