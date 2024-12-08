@@ -12,7 +12,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author marri
+ * @author ojas
  */
 public class Appointment {
 

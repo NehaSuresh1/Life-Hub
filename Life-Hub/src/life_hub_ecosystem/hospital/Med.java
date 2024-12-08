@@ -6,7 +6,7 @@ package life_hub_ecosystem.hospital;
 
 /**
  *
- * @author marri
+ * @author hemin
  */
 public class Med {
 

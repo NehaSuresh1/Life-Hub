@@ -35,20 +35,20 @@ public class ConfigureSystem {
 //        Hospital h4 = es.hospitalDirectory.newHospital("Hospital Branch 4");
         //Department d1 = es.hospitalDirectory.findHospital(h1.getId()).departmentDirectory.newDept("")
 ///////////---------------------------------------------------------
-        Lab l1 = es.labDirectory.newLab("Lab branch 1", "02119");
-        Lab l2 = es.labDirectory.newLab("Lab branch 2", "02119");
+        Lab l1 = es.labDirectory.newLab("Lab Branch 1", "02119");
+        Lab l2 = es.labDirectory.newLab("Lab Branch 2", "02119");
 //        Lab l3 = es.labDirectory.newLab("Lab branch 3");
 //        Lab l4 = es.labDirectory.newLab("Lab branch 4");
 
 ///////////---------------------------------------------------------
-        Pharmacy p1 = es.pharmacyDirectory.newPharmacy("Pharmacy branch 1", "02119");
-        Pharmacy p2 = es.pharmacyDirectory.newPharmacy("Pharmacy branch 2", "02115");
+        Pharmacy p1 = es.pharmacyDirectory.newPharmacy("Pharmacy Branch 1", "02119");
+        Pharmacy p2 = es.pharmacyDirectory.newPharmacy("Pharmacy Branch 2", "02115");
 //        Pharmacy p3 = es.pharmacyDirectory.newPharmacy("Pharmacy branch 3");
 //        Pharmacy p4 = es.pharmacyDirectory.newPharmacy("Pharmacy branch 4");
 
 ///////////---------------------------------------------------------
-        WellnessKitchen hh1 = es.lifeHubDirectory.newHH("LifeHub branch 1", "02119");
-        WellnessKitchen hh2 = es.lifeHubDirectory.newHH("LifeHub branch 2", "02115");
+        WellnessKitchen hh1 = es.lifeHubDirectory.newHH("LifeHub Branch 1", "02119");
+        WellnessKitchen hh2 = es.lifeHubDirectory.newHH("LifeHub Branch 2", "02115");
 //        WellnessKitchen hh3 = es.healthHubDirectory.newHH("LifeHub branch 3");
 //        WellnessKitchen hh4 = es.healthHubDirectory.newHH("LifeHub branch 4");
 
@@ -87,10 +87,10 @@ public class ConfigureSystem {
         Department d3 = es.hospitalDirectory.findHospital(h2.getId()).departmentDirectory.newDept("Cardiology");
         Department d4 = es.hospitalDirectory.findHospital(h2.getId()).departmentDirectory.newDept("Orthology");
 ///////////---------------------------------------------------------
-        DoctorProfile dp1 = es.hospitalDirectory.findHospital(h1.getId()).doctorDirectory.newDoctor(person01, d1, "10", "MD in cardiology", h1);
+        DoctorProfile dp1 = es.hospitalDirectory.findHospital(h1.getId()).doctorDirectory.newDoctor(person01, d1, "10", "MD in Cardiology", h1);
         DoctorProfile dp2 = es.hospitalDirectory.findHospital(h1.getId()).doctorDirectory.newDoctor(person02, d2, "10", "MD in Orthology", h1);
 
-        DoctorProfile dp3 = es.hospitalDirectory.findHospital(h2.getId()).doctorDirectory.newDoctor(person03, d3, "10", "MD in cardiology", h2);
+        DoctorProfile dp3 = es.hospitalDirectory.findHospital(h2.getId()).doctorDirectory.newDoctor(person03, d3, "10", "MD in Physician", h2);
         DoctorProfile dp4 = es.hospitalDirectory.findHospital(h2.getId()).doctorDirectory.newDoctor(person04, d4, "10", "MD in Orthology", h2);
 
 ///////////---------------------------------------------------------
@@ -104,8 +104,8 @@ public class ConfigureSystem {
         LabAssistantProfile la2 = es.labDirectory.findLab(l2.getId()).labAssistantDirectory.newLabAssistant(person10);
 
 ///////////---------------------------------------------------------
-        PharmacistProfile pp1 = es.getPharmacyDirectory().findPharmacy(p1.getId()).pharmacistDirectory.newPharmacist(person16, "B Pharma");
-        PharmacistProfile pp2 = es.getPharmacyDirectory().findPharmacy(p2.getId()).pharmacistDirectory.newPharmacist(person17, "M Pharma");
+        PharmacistProfile pp1 = es.getPharmacyDirectory().findPharmacy(p1.getId()).pharmacistDirectory.newPharmacist(person16, "B-Pharma");
+        PharmacistProfile pp2 = es.getPharmacyDirectory().findPharmacy(p2.getId()).pharmacistDirectory.newPharmacist(person17, "M-Pharma");
 
 ///////////---------------------------------------------------------
         LifeHubManagerProfile hhm1 = es.lifeHubDirectory.findHH(hh1.getId()).lifeHubManagerDirectory.newManager(person18, "4");
@@ -118,23 +118,26 @@ public class ConfigureSystem {
         DelieryAgentProfile da2 = es.lifeHubDirectory.findHH(hh2.getId()).deliveryAgentDirectory.newDA(person20, "02120");
 
 ///////////--------------------------------------------------------- 
-        PatientProfile patient01 = h1.patientDirectory.newPatient("veg", "123 main st", "Boston", "MA", "02119", person11, h1);
-        PatientProfile patient02 = h1.patientDirectory.newPatient("non-veg", "123 high st", "Boston", "MA", "02120", person12, h1);
-        PatientProfile patient03 = h1.patientDirectory.newPatient("veg", "123 low st", "Boston", "MA", "02115", person13, h1);
-        PatientProfile patient04 = h2.patientDirectory.newPatient("veg", "123 main st", "Boston", "MA", "02119", person14, h2);
-        PatientProfile patient05 = h2.patientDirectory.newPatient("non-veg", "123 high st", "Boston", "MA", "02120", person15, h2);
+        PatientProfile patient01 = h1.patientDirectory.newPatient("Vegetarian", "123 main st", "Boston", "MA", "02119", person11, h1);
+        PatientProfile patient02 = h1.patientDirectory.newPatient("Non-Veg", "123 high st", "Boston", "MA", "02120", person12, h1);
+        PatientProfile patient03 = h1.patientDirectory.newPatient("Vegan", "123 low st", "Boston", "MA", "02115", person13, h1);
+        PatientProfile patient04 = h2.patientDirectory.newPatient("Vegetarian", "123 main st", "Boston", "MA", "02119", person14, h2);
+        PatientProfile patient05 = h2.patientDirectory.newPatient("Non-Veg", "123 high st", "Boston", "MA", "02120", person15, h2);
         //PatientProfile patient06 = h2.patientDirectory.newPatient("vegan", "123 low st", "Boston", "MA", "02115", person11);
 ///////////--------------------------------------------------------- 
 
         Med med1 = es.getMedDirectory().newMedicine("Crocin");
         Med med2 = es.getMedDirectory().newMedicine("Paracetmol");
         Med med3 = es.getMedDirectory().newMedicine("Vicks");
-        Med med4 = es.getMedDirectory().newMedicine("New med");
+        Med med4 = es.getMedDirectory().newMedicine("Benedril Syrup");
+        Med med5 = es.getMedDirectory().newMedicine("Norflox-TZ");
+        Med med6 = es.getMedDirectory().newMedicine("Azithromycin");
 ///////////--------------------------------------------------------- 
 
-        LabTest lt1 = es.getLabTestDirectory().newTest("Blood pressure test");
-        LabTest lt2 = es.getLabTestDirectory().newTest("Glucose test");
-        LabTest lt3 = es.getLabTestDirectory().newTest("thyroid test");
+        LabTest lt1 = es.getLabTestDirectory().newTest("Blood Pressure Test");
+        LabTest lt2 = es.getLabTestDirectory().newTest("Glucose/Diabetes Test");
+        LabTest lt3 = es.getLabTestDirectory().newTest("Thyroid Test");
+        LabTest lt4 = es.getLabTestDirectory().newTest("Complete Blood Count(CBC) Test");
 ///////////--------------------------------------------------------- 
 
 ///////////---------------------------------------------------------
@@ -142,21 +145,25 @@ public class ConfigureSystem {
         patient01.addAppointments(apt1);
 
 ///////////--------------------------------------------------------- 
-        es.getMealDirectory().NewMeal("Lentil Shepherd's Pie", "veg");
-        es.getMealDirectory().NewMeal("Black Bean Burgers", "veg");
-        es.getMealDirectory().NewMeal("Tofu Scramble", "veg");
-        es.getMealDirectory().NewMeal("Stuffed Peppers", "veg");
-        es.getMealDirectory().NewMeal("Summer Veggie Wraps", "veg");
-        es.getMealDirectory().NewMeal("Rainbow Veggie Salad", "veg");
-        es.getMealDirectory().NewMeal("Rainbow Veggie Buddha Bowl", "veg");
+        es.getMealDirectory().NewMeal("Lentil Shepherd's Pie", "Vegan");
+        es.getMealDirectory().NewMeal("Black Bean Burgers", "Vegan");
+        es.getMealDirectory().NewMeal("Tofu Scramble", "Vegan");
+        es.getMealDirectory().NewMeal("Stuffed Peppers", "Vegan");
+        es.getMealDirectory().NewMeal("Rainbow Veggie Buddha Bowl", "Vegan");
+        es.getMealDirectory().NewMeal("Paneer Tikka Masala", "Vegetarian");
+        es.getMealDirectory().NewMeal("Summer Paneer Veggie Wraps", "Vegetarian");
+        es.getMealDirectory().NewMeal("Greek Yogurt","Vegetarian");
+        es.getMealDirectory().NewMeal("Turmeric Milk","Vegetarian");
+        es.getMealDirectory().NewMeal("Veggie Caesar Salad", "Vegetarian");
 
-        es.getMealDirectory().NewMeal("Chicken Kabobs", "non-veg");
-        es.getMealDirectory().NewMeal("Turkey Chili", "non-veg");
-        es.getMealDirectory().NewMeal("Shrimp Stir-Fry", "non-veg");
-        es.getMealDirectory().NewMeal("Tuna Salad with Whole-Wheat Bread", "non-veg");
-        es.getMealDirectory().NewMeal("Shrimp Scampi", "non-veg");
-        es.getMealDirectory().NewMeal("Indian Chicken Tikka Masala", "non-veg");
-        es.getMealDirectory().NewMeal("Thai Chicken Salad", "non-veg");
+        es.getMealDirectory().NewMeal("Chicken Kabobs", "Non-Veg");
+        es.getMealDirectory().NewMeal("Turkey Chili", "Non-Veg");
+        es.getMealDirectory().NewMeal("Shrimp Stir-Fry", "Non-Veg");
+        es.getMealDirectory().NewMeal("Tuna Salad with Whole-Wheat Bread", "Non-Veg");
+        es.getMealDirectory().NewMeal("Shrimp Scampi", "Non-Veg");
+        es.getMealDirectory().NewMeal("Chicken Tikka Masala", "Non-Veg");
+        es.getMealDirectory().NewMeal("Thai Chicken Salad", "Non-Veg");
+        es.getMealDirectory().NewMeal("Boiled Egg Whites", "Non-Veg");
 
 ///////////--------------------------------------------------------- 
         UserAccountDirectory uadirectory = es.getUseraccountdirectory();

@@ -15,7 +15,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author marri
+ * @author ojas
  */
 public class PharmacistMainJPanel extends javax.swing.JPanel {
 
@@ -79,7 +79,7 @@ public class PharmacistMainJPanel extends javax.swing.JPanel {
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitle.setText("Pharmacist Portal");
         add(lblTitle);
-        lblTitle.setBounds(6, 6, 760, 70);
+        lblTitle.setBounds(6, 6, 730, 70);
 
         tblOrders.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -89,7 +89,7 @@ public class PharmacistMainJPanel extends javax.swing.JPanel {
                 {null, null, null, null, null}
             },
             new String [] {
-                "Order ID", "Patient", "Doctor", "Meds", "Has fulfiled"
+                "Order ID", "Patient", "Doctor", "Meds", "Has Fulfiled"
             }
         ));
         tblOrders.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -100,11 +100,11 @@ public class PharmacistMainJPanel extends javax.swing.JPanel {
         jScrollPane1.setViewportView(tblOrders);
 
         add(jScrollPane1);
-        jScrollPane1.setBounds(60, 100, 640, 230);
+        jScrollPane1.setBounds(50, 80, 640, 230);
 
-        jLabel1.setText("Total cost");
+        jLabel1.setText("Total Cost:");
         add(jLabel1);
-        jLabel1.setBounds(440, 360, 60, 16);
+        jLabel1.setBounds(400, 370, 60, 16);
 
         btnComplete.setText("Complete Order");
         btnComplete.addActionListener(new java.awt.event.ActionListener() {
@@ -113,7 +113,7 @@ public class PharmacistMainJPanel extends javax.swing.JPanel {
             }
         });
         add(btnComplete);
-        btnComplete.setBounds(490, 400, 120, 23);
+        btnComplete.setBounds(440, 410, 150, 40);
 
         txtCost.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -121,7 +121,7 @@ public class PharmacistMainJPanel extends javax.swing.JPanel {
             }
         });
         add(txtCost);
-        txtCost.setBounds(540, 360, 120, 20);
+        txtCost.setBounds(480, 362, 130, 30);
 
         btnLogout.setText("Logout");
         btnLogout.addActionListener(new java.awt.event.ActionListener() {
@@ -130,7 +130,7 @@ public class PharmacistMainJPanel extends javax.swing.JPanel {
             }
         });
         add(btnLogout);
-        btnLogout.setBounds(95, 370, 100, 30);
+        btnLogout.setBounds(50, 370, 100, 30);
     }// </editor-fold>//GEN-END:initComponents
 
     private void tblOrdersMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblOrdersMousePressed
