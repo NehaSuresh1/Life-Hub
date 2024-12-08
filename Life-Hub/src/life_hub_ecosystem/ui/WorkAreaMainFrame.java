@@ -31,7 +31,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author kal bugrara
+ * @author ojas
  */
 public class WorkAreaMainFrame extends javax.swing.JFrame {
 
@@ -236,9 +236,6 @@ public class WorkAreaMainFrame extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "User is Disabled");
             return;
         }
-//        StudentWorkAreaJPanel studentworkareajpanel;
-//        FacultyWorkAreaJPanel facultyworkarea;
-//        AdminRoleWorkAreaJPanel adminworkarea;
 
         PatientMainJPanel patientMainJPanel;
         DocMainJPanel docMainJPanel;
@@ -250,16 +247,7 @@ public class WorkAreaMainFrame extends javax.swing.JFrame {
 
         String r = useraccount.getRole();
         Profile profile = useraccount.getAssociatedPersonProfile();
-        //       if (r.equalsIgnoreCase("sales")) {
 
-//        if (profile instanceof EmployeeProfile) {
-//
-//            adminworkarea = new AdminRoleWorkAreaJPanel(es, CardSequencePanel);
-//            CardSequencePanel.removeAll();
-//            CardSequencePanel.add("Admin", adminworkarea);
-//            ((java.awt.CardLayout) CardSequencePanel.getLayout()).next(CardSequencePanel);
-//
-//        }
         if (profile instanceof PatientProfile) {
 
             PatientProfile pp = (PatientProfile) profile;
