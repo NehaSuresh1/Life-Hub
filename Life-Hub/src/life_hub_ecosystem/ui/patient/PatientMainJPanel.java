@@ -51,7 +51,7 @@ public class PatientMainJPanel extends javax.swing.JPanel {
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitle.setText("Patient Portal");
         add(lblTitle);
-        lblTitle.setBounds(0, -4, 760, 70);
+        lblTitle.setBounds(10, 20, 760, 70);
 
         btnAPT.setText("Appointments");
         btnAPT.addActionListener(new java.awt.event.ActionListener() {
@@ -69,7 +69,7 @@ public class PatientMainJPanel extends javax.swing.JPanel {
             }
         });
         add(btnPharma);
-        btnPharma.setBounds(161, 210, 123, 40);
+        btnPharma.setBounds(161, 210, 140, 40);
 
         btnDietSys.setText("Diet System");
         btnDietSys.addActionListener(new java.awt.event.ActionListener() {
@@ -87,7 +87,7 @@ public class PatientMainJPanel extends javax.swing.JPanel {
             }
         });
         add(btnLR);
-        btnLR.setBounds(160, 290, 140, 40);
+        btnLR.setBounds(160, 280, 140, 40);
 
         btnMesg.setText("Messages");
         btnMesg.addActionListener(new java.awt.event.ActionListener() {

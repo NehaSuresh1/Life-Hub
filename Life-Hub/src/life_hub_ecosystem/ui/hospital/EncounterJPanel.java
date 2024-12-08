@@ -123,6 +123,9 @@ public class EncounterJPanel extends javax.swing.JPanel {
         dropDietPeriod = new javax.swing.JComboBox<>();
         btnPrescribeDiet = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
         setLayout(null);
 
@@ -145,7 +148,7 @@ public class EncounterJPanel extends javax.swing.JPanel {
         jScrollPane1.setViewportView(tblTests);
 
         add(jScrollPane1);
-        jScrollPane1.setBounds(60, 350, 370, 154);
+        jScrollPane1.setBounds(80, 360, 370, 154);
 
         tblmeds.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -172,19 +175,19 @@ public class EncounterJPanel extends javax.swing.JPanel {
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitle.setText("Diet Period");
         add(lblTitle);
-        lblTitle.setBounds(500, 310, 130, 20);
+        lblTitle.setBounds(520, 320, 100, 20);
 
         lblTitle1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         lblTitle1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitle1.setText("Encounter");
         add(lblTitle1);
-        lblTitle1.setBounds(10, 0, 760, 60);
+        lblTitle1.setBounds(40, 10, 760, 40);
 
         lblTitle2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblTitle2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitle2.setText("Period");
         add(lblTitle2);
-        lblTitle2.setBounds(500, 170, 80, 20);
+        lblTitle2.setBounds(510, 170, 80, 20);
 
         dropPeriod.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1 weeks","2 weeks", "4 weeks"}));
         add(dropPeriod);
@@ -200,7 +203,7 @@ public class EncounterJPanel extends javax.swing.JPanel {
         lblTitle4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitle4.setText("Timing");
         add(lblTitle4);
-        lblTitle4.setBounds(490, 120, 90, 20);
+        lblTitle4.setBounds(510, 120, 80, 20);
 
         dropTiming.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Morning","Afternoon", "Night"}));
         add(dropTiming);
@@ -213,7 +216,7 @@ public class EncounterJPanel extends javax.swing.JPanel {
             }
         });
         add(btnPrescribeTest);
-        btnPrescribeTest.setBounds(320, 540, 100, 30);
+        btnPrescribeTest.setBounds(350, 540, 100, 30);
 
         btnPrescribeMed.setText("Prescribe");
         btnPrescribeMed.addActionListener(new java.awt.event.ActionListener() {
@@ -222,7 +225,7 @@ public class EncounterJPanel extends javax.swing.JPanel {
             }
         });
         add(btnPrescribeMed);
-        btnPrescribeMed.setBounds(540, 220, 90, 23);
+        btnPrescribeMed.setBounds(570, 240, 90, 23);
 
         btnBack.setText("Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
@@ -231,8 +234,9 @@ public class EncounterJPanel extends javax.swing.JPanel {
             }
         });
         add(btnBack);
-        btnBack.setBounds(50, 540, 90, 30);
+        btnBack.setBounds(80, 540, 90, 30);
 
+        btnCompletedApt.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnCompletedApt.setText("Complete Encounter");
         btnCompletedApt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -240,17 +244,22 @@ public class EncounterJPanel extends javax.swing.JPanel {
             }
         });
         add(btnCompletedApt);
-        btnCompletedApt.setBounds(700, 540, 150, 30);
+        btnCompletedApt.setBounds(600, 520, 165, 60);
 
         lblTitle5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblTitle5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitle5.setText("Prescribe Tests");
         add(lblTitle5);
-        lblTitle5.setBounds(60, 310, 130, 20);
+        lblTitle5.setBounds(60, 320, 130, 20);
 
         dropDietPeriod.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1","2","3","4"}));
+        dropDietPeriod.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dropDietPeriodActionPerformed(evt);
+            }
+        });
         add(dropDietPeriod);
-        dropDietPeriod.setBounds(530, 360, 90, 22);
+        dropDietPeriod.setBounds(530, 370, 90, 22);
 
         btnPrescribeDiet.setText("Prescribe");
         btnPrescribeDiet.addActionListener(new java.awt.event.ActionListener() {
@@ -259,11 +268,23 @@ public class EncounterJPanel extends javax.swing.JPanel {
             }
         });
         add(btnPrescribeDiet);
-        btnPrescribeDiet.setBounds(690, 360, 90, 20);
+        btnPrescribeDiet.setBounds(700, 370, 90, 20);
 
         jLabel1.setText("weeks");
         add(jLabel1);
-        jLabel1.setBounds(632, 362, 40, 20);
+        jLabel1.setBounds(630, 370, 40, 20);
+
+        jLabel2.setBorder(javax.swing.BorderFactory.createCompoundBorder(null, javax.swing.BorderFactory.createTitledBorder("")));
+        add(jLabel2);
+        jLabel2.setBounds(510, 310, 300, 120);
+
+        jLabel3.setBorder(javax.swing.BorderFactory.createCompoundBorder(null, javax.swing.BorderFactory.createTitledBorder("")));
+        add(jLabel3);
+        jLabel3.setBounds(40, 60, 750, 240);
+
+        jLabel4.setBorder(javax.swing.BorderFactory.createCompoundBorder(null, javax.swing.BorderFactory.createTitledBorder("")));
+        add(jLabel4);
+        jLabel4.setBounds(40, 310, 460, 280);
     }// </editor-fold>//GEN-END:initComponents
 
     private void tblTestsMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblTestsMousePressed
@@ -362,6 +383,10 @@ public class EncounterJPanel extends javax.swing.JPanel {
         JOptionPane.showMessageDialog(this, pp.getDietaryChoice() + " Diet is prescribed for " + dropDietPeriod.getSelectedItem().toString());
     }//GEN-LAST:event_btnPrescribeDietActionPerformed
 
+    private void dropDietPeriodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dropDietPeriodActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_dropDietPeriodActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
@@ -373,6 +398,9 @@ public class EncounterJPanel extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> dropPeriod;
     private javax.swing.JComboBox<String> dropTiming;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lblTitle;

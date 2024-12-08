@@ -14,7 +14,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author marri
+ * @author neha
  */
 public class MealPlanJPanel extends javax.swing.JPanel {
 

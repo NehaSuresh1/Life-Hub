@@ -18,7 +18,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author marri
+ * @author ojas
  */
 public class NurseMainJPanel extends javax.swing.JPanel {
 
@@ -41,43 +41,76 @@ public class NurseMainJPanel extends javax.swing.JPanel {
 
     void refreshTable() {
 //clear supplier table
+//        int rc = tbCourses.getRowCount();
+//        int i;
+//        for (i = rc - 1; i >= 0; i--) {
+//            ((DefaultTableModel) tbCourses.getModel()).removeRow(i);
+//        }
+//
+//        ArrayList<Appointment> apts = np.getHosp().getAppointmentDirectory().getAppointmentsList();
+//        for (Appointment apt : apts) {
+//            if (np.getDept().equals(apt.getDp().getDept())) {
+//                Object[] row = new Object[4];
+//                row[0] = apt.getPp();
+//                row[1] = apt.getDp();
+//                row[2] = np.getDept();
+//                row[3] = apt.isHasCompleted();
+//            }
+//        }
+//        selectedPatient = null;
         int rc = tbCourses.getRowCount();
-        int i;
-        for (i = rc - 1; i >= 0; i--) {
-            ((DefaultTableModel) tbCourses.getModel()).removeRow(i);
-        }
+    for (int i = rc - 1; i >= 0; i--) {
+        ((DefaultTableModel) tbCourses.getModel()).removeRow(i);
+    }
 
-        ArrayList<Appointment> apts = np.getHosp().getAppointmentDirectory().getAppointmentsList();
-        for (Appointment apt : apts) {
-            if (np.getDept().equals(apt.getDp().getDept())) {
-                Object[] row = new Object[4];
-                row[0] = apt.getPp();
-                row[1] = apt.getDp();
-                row[2] = np.getDept();
-                row[3] = apt.isHasCompleted();
-            }
+    // Retrieve appointments and populate the table
+    ArrayList<Appointment> apts = np.getHosp().getAppointmentDirectory().getAppointmentsList();
+    for (Appointment apt : apts) {
+        if (np.getDept().equals(apt.getDp().getDept())) {
+            Object[] row = new Object[4];
+            row[0] = apt.getPp();  // Patient profile
+            row[1] = apt.getDp();  // Doctor profile
+            row[2] = np.getDept(); // Department
+            row[3] = apt.isHasCompleted(); // Appointment status
+            ((DefaultTableModel) tbCourses.getModel()).addRow(row); // Add row to table model
         }
-        selectedPatient = null;
+    }
+    selectedPatient = null;
     }
 
     void refreshMealsTable() {
 //clear supplier table
-        int rc = tbCourses1.getRowCount();
-        int i;
-        for (i = rc - 1; i >= 0; i--) {
+//        int rc = tbCourses1.getRowCount();
+//        int i;
+//        for (i = rc - 1; i >= 0; i--) {
+//            ((DefaultTableModel) tbCourses1.getModel()).removeRow(i);
+//        }
+//        HashMap<Meal, ArrayList<String>> mealDetails = selectedPatient.getMealPlan().getMealDetails();
+//
+//        for (Meal meal : mealDetails.keySet()) {
+//            Object[] row = new Object[1];
+//            row[0] = meal; //.getAssociatedPersonProfile().getPerson().getName();
+//            row[1] = selectedPatient.getMealPlan().getMealDetails().get(meal).get(0);
+//            row[2] = selectedPatient.getMealPlan().getMealDetails().get(meal).get(1);
+//            ((DefaultTableModel) tbCourses.getModel()).addRow(row);
+//        }
+//        selectedDate = null;
+          int rc = tbCourses1.getRowCount();
+        for (int i = rc - 1; i >= 0; i--) {
             ((DefaultTableModel) tbCourses1.getModel()).removeRow(i);
         }
-        HashMap<Meal, ArrayList<String>> mealDetails = selectedPatient.getMealPlan().getMealDetails();
 
+    // Get meal details and add to the table
+        HashMap<Meal, ArrayList<String>> mealDetails = selectedPatient.getMealPlan().getMealDetails();
         for (Meal meal : mealDetails.keySet()) {
-            Object[] row = new Object[1];
-            row[0] = meal; //.getAssociatedPersonProfile().getPerson().getName();
-            row[1] = selectedPatient.getMealPlan().getMealDetails().get(meal).get(0);
-            row[2] = selectedPatient.getMealPlan().getMealDetails().get(meal).get(1);
-            ((DefaultTableModel) tbCourses.getModel()).addRow(row);
+            Object[] row = new Object[3];  // Meal, Delivery Date, Has Meal Consumed
+            row[0] = meal;  // Meal object
+            row[1] = mealDetails.get(meal).get(0); // Delivery Date
+            row[2] = mealDetails.get(meal).get(1); // Meal consumption status
+            ((DefaultTableModel) tbCourses1.getModel()).addRow(row);  // Add row to table model
         }
         selectedDate = null;
-    }
+        }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -88,6 +121,7 @@ public class NurseMainJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jProgressBar1 = new javax.swing.JProgressBar();
         lblTitle = new javax.swing.JLabel();
         btnLogout = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -105,7 +139,7 @@ public class NurseMainJPanel extends javax.swing.JPanel {
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitle.setText("Patient MealPlan Status");
         add(lblTitle);
-        lblTitle.setBounds(0, 270, 790, 40);
+        lblTitle.setBounds(0, 260, 790, 40);
 
         btnLogout.setText("Logout");
         btnLogout.addActionListener(new java.awt.event.ActionListener() {
@@ -114,7 +148,7 @@ public class NurseMainJPanel extends javax.swing.JPanel {
             }
         });
         add(btnLogout);
-        btnLogout.setBounds(60, 520, 72, 23);
+        btnLogout.setBounds(70, 520, 72, 23);
 
         tbCourses.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -135,7 +169,7 @@ public class NurseMainJPanel extends javax.swing.JPanel {
         jScrollPane1.setViewportView(tbCourses);
 
         add(jScrollPane1);
-        jScrollPane1.setBounds(70, 80, 640, 180);
+        jScrollPane1.setBounds(70, 70, 640, 180);
 
         tbCourses1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -156,13 +190,13 @@ public class NurseMainJPanel extends javax.swing.JPanel {
         jScrollPane2.setViewportView(tbCourses1);
 
         add(jScrollPane2);
-        jScrollPane2.setBounds(70, 320, 640, 180);
+        jScrollPane2.setBounds(70, 310, 640, 180);
 
         lblTitle1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         lblTitle1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitle1.setText("Nurse Portal");
         add(lblTitle1);
-        lblTitle1.setBounds(6, 6, 760, 70);
+        lblTitle1.setBounds(56, 6, 680, 50);
 
         btnNotify.setText("Notify");
         btnNotify.addActionListener(new java.awt.event.ActionListener() {
@@ -206,24 +240,33 @@ public class NurseMainJPanel extends javax.swing.JPanel {
     private void tbCourses1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbCourses1MousePressed
         // TODO add your handling code here:
         // Extracts the row (uaser account) in the table that is selected by the user
-        int size = tbCourses1.getRowCount();
-        int selectedrow = tbCourses1.getSelectionModel().getLeadSelectionIndex();
+        int selectedrow = tbCourses1.getSelectedRow();
 
-        if (selectedrow < 0 || selectedrow > size - 1) {
-            return;
+        if (selectedrow < 0) {
+            return;  // No row selected
         }
-        selectedDate = (String) tbCourses1.getValueAt(selectedrow, 1);
-        //selectedDate = (String) tbCourses.getValueAt(selectedrow, 1);
+       selectedDate = (String) tbCourses1.getValueAt(selectedrow, 1);
         if (selectedDate == null) {
             return;
-
-        }
+        }   
+        
     }//GEN-LAST:event_tbCourses1MousePressed
 
     private void btnNotifyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNotifyActionPerformed
         // TODO add your handling code here:
+        if (txtMsg.getText().isEmpty()) {
+        JOptionPane.showMessageDialog(this, "Please enter a message.");
+        return;
+        }
+
+        if (selectedPatient == null) {
+        JOptionPane.showMessageDialog(this, "Please select a patient.");
+        return;
+        }
+
+    // Send the message
         np.getHosp().getMessageDirectory().newMessage(txtMsg.getText(), np, selectedPatient);
-        JOptionPane.showMessageDialog(this, "Message semt successfully");
+        JOptionPane.showMessageDialog(this, "Message sent successfully.");
     }//GEN-LAST:event_btnNotifyActionPerformed
 
 
@@ -231,6 +274,7 @@ public class NurseMainJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnLogout;
     private javax.swing.JButton btnNotify;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JProgressBar jProgressBar1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lblTitle;

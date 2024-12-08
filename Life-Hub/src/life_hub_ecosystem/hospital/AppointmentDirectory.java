@@ -11,7 +11,7 @@ import java.util.UUID;
 
 /**
  *
- * @author marri
+ * @author ojas
  */
 public class AppointmentDirectory {
 

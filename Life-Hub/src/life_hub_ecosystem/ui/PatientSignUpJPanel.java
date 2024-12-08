@@ -131,7 +131,12 @@ public class PatientSignUpJPanel extends javax.swing.JPanel {
 
         jLabel2.setText("Dietary");
 
-        dropDietary.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "non-veg", "veg" }));
+        dropDietary.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Vegetarian", "Non-Veg", "Vegan" }));
+        dropDietary.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dropDietaryActionPerformed(evt);
+            }
+        });
 
         dropState.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado", "Connecticut", "Delaware", "Florida", "Georgia", "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa", "Kansas", "Kentucky", "Louisiana", "Maine", "Maryland", "Massachusetts", "Michigan", "Minnesota", "Mississippi", "Missouri", "Montana", "Nebraska", "Nevada", "New Hampshire", "New Jersey", "New Mexico", "New York", "North Carolina", "North Dakota", "Ohio", "Oklahoma", "Oregon", "Pennsylvania", "Rhode Island", "South Carolina", "South Dakota", "Tennessee", "Texas", "Utah", "Vermont", "Virginia", "Washington", "West Virginia", "Wisconsin", "Wyoming" }));
 
@@ -353,6 +358,10 @@ public class PatientSignUpJPanel extends javax.swing.JPanel {
         }
         
     }//GEN-LAST:event_txtZipcodeActionPerformed
+
+    private void dropDietaryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dropDietaryActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_dropDietaryActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

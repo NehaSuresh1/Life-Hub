@@ -85,7 +85,7 @@ public class DocMainJPanel extends javax.swing.JPanel {
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitle.setText("Doctor Portal");
         add(lblTitle);
-        lblTitle.setBounds(57, 0, 760, 70);
+        lblTitle.setBounds(20, 20, 630, 50);
 
         tblmeds.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -95,7 +95,7 @@ public class DocMainJPanel extends javax.swing.JPanel {
                 {null, null, null}
             },
             new String [] {
-                "Patient", "Apt ID", "Has Completed"
+                "Patient", "Address", "Has Completed"
             }
         ));
         tblmeds.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -106,7 +106,7 @@ public class DocMainJPanel extends javax.swing.JPanel {
         jScrollPane2.setViewportView(tblmeds);
 
         add(jScrollPane2);
-        jScrollPane2.setBounds(119, 88, 567, 234);
+        jScrollPane2.setBounds(50, 90, 567, 234);
 
         btnSelectPatient.setText("Select");
         btnSelectPatient.addActionListener(new java.awt.event.ActionListener() {
@@ -115,7 +115,7 @@ public class DocMainJPanel extends javax.swing.JPanel {
             }
         });
         add(btnSelectPatient);
-        btnSelectPatient.setBounds(591, 370, 110, 30);
+        btnSelectPatient.setBounds(510, 370, 110, 30);
 
         btnLogout.setText("Logout");
         btnLogout.addActionListener(new java.awt.event.ActionListener() {
@@ -124,7 +124,7 @@ public class DocMainJPanel extends javax.swing.JPanel {
             }
         });
         add(btnLogout);
-        btnLogout.setBounds(110, 370, 110, 30);
+        btnLogout.setBounds(60, 370, 110, 30);
     }// </editor-fold>//GEN-END:initComponents
 
     private void tblmedsMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblmedsMousePressed
