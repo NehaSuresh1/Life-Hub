@@ -179,7 +179,7 @@
     <Component class="javax.swing.JComboBox" name="dropGender">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="new javax.swing.DefaultComboBoxModel&lt;&gt;(new String[] { &quot;male&quot;, &quot;female&quot; })" type="code"/>
+          <Connection code="new javax.swing.DefaultComboBoxModel&lt;&gt;(new String[] { &quot;Male&quot;, &quot;Female&quot; })" type="code"/>
         </Property>
       </Properties>
       <Events>
@@ -245,7 +245,7 @@
     <Component class="javax.swing.JComboBox" name="dropDepartment">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="new javax.swing.DefaultComboBoxModel&lt;&gt;(new String[] { &quot;General&quot;, &quot;surgen&quot;, &quot;pshyo&quot;, &quot;cardiliogy&quot; })" type="code"/>
+          <Connection code="new javax.swing.DefaultComboBoxModel&lt;&gt;(new String[] { &quot;General Physician&quot;, &quot;Surgeon&quot;, &quot;Psychology&quot;, &quot;Cardiology&quot; })" type="code"/>
         </Property>
       </Properties>
       <AuxValues>

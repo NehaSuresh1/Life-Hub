@@ -99,7 +99,7 @@ public class NurseSignUpJPanel extends javax.swing.JPanel {
 
         jLabel1.setText("Gender");
 
-        dropGender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "male", "female" }));
+        dropGender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Male", "Female" }));
         dropGender.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 dropGenderActionPerformed(evt);
@@ -123,7 +123,7 @@ public class NurseSignUpJPanel extends javax.swing.JPanel {
 
         dropHosp.setModel(new javax.swing.DefaultComboBoxModel<>(es.getHospitalDirectory().getList()));
 
-        dropDepartment.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "General", "surgen", "pshyo", "cardiliogy" }));
+        dropDepartment.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "General Physician", "Surgeon", "Psychology", "Cardiology" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);

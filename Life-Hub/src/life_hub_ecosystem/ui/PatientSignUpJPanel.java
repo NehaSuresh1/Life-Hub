@@ -103,7 +103,7 @@ public class PatientSignUpJPanel extends javax.swing.JPanel {
         lblHeading.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblHeading.setText("Patient Registration");
 
-        dropGender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "male", "female" }));
+        dropGender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Male", "Female" }));
         dropGender.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 dropGenderActionPerformed(evt);
