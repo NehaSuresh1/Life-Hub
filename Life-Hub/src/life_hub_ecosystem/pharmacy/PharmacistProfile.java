@@ -32,7 +32,7 @@ public class PharmacistProfile extends Profile {
 
     @Override
     public String getRole() {
-        return "Nurse";
+        return "Pharmacist";
     }
 
     @Override

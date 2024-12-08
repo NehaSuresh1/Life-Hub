@@ -23,7 +23,7 @@ public class LabAssistantProfile extends Profile {
 
     @Override
     public String getRole() {
-        return "Nurse";
+        return "Lab Assistant";
     }
 
     @Override

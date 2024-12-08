@@ -46,6 +46,10 @@ public class WellnessKitchen {
     public LifeHubManagerDirectory getLifeHubManagerDirectory() {
         return lifeHubManagerDirectory;
     }
+    
+    public DeliveryAgentDirectory getDeliveryAgentDirectory() {
+        return deliveryAgentDirectory;
+    }
 
     public String getId() {
         return Id;
