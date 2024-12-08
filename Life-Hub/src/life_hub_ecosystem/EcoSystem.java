@@ -101,7 +101,7 @@ public class EcoSystem {
         return pharmacyDirectory;
     }
 
-    public LifeHubDirectory getHealthHubDirectory() {
+    public LifeHubDirectory getLifeHubDirectory() {
         return lifeHubDirectory;
     }
 }

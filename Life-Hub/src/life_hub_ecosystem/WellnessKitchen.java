@@ -43,7 +43,7 @@ public class WellnessKitchen {
         this.name = name;
     }
     
-    public LifeHubManagerDirectory getHealthHubManagerDirectory() {
+    public LifeHubManagerDirectory getLifeHubManagerDirectory() {
         return lifeHubManagerDirectory;
     }
 

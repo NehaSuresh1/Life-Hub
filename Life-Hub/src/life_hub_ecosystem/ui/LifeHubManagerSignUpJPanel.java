@@ -57,12 +57,12 @@ public class LifeHubManagerSignUpJPanel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         lblUserName = new javax.swing.JLabel();
         txtAge = new javax.swing.JTextField();
-        lblHeading = new javax.swing.JLabel();
         dropGender = new javax.swing.JComboBox<>();
         lblExperience = new javax.swing.JLabel();
         txtExperience = new javax.swing.JTextField();
         dropLab = new javax.swing.JComboBox<>();
         lblSpeciality1 = new javax.swing.JLabel();
+        lblHeading = new javax.swing.JLabel();
 
         lblName.setText("Name");
 
@@ -83,11 +83,7 @@ public class LifeHubManagerSignUpJPanel extends javax.swing.JPanel {
 
         lblUserName.setText("Username");
 
-        lblHeading.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        lblHeading.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblHeading.setText("Manager Registration");
-
-        dropGender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "male", "female" }));
+        dropGender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Male", "Female" }));
         dropGender.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 dropGenderActionPerformed(evt);
@@ -106,15 +102,17 @@ public class LifeHubManagerSignUpJPanel extends javax.swing.JPanel {
 
         lblSpeciality1.setText("Hospital");
 
+        lblHeading.setBackground(new java.awt.Color(255, 255, 255));
+        lblHeading.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        lblHeading.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblHeading.setText("Manager Registration");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(41, 41, 41)
-                        .addComponent(lblHeading, javax.swing.GroupLayout.PREFERRED_SIZE, 501, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(157, 157, 157)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -139,15 +137,18 @@ public class LifeHubManagerSignUpJPanel extends javax.swing.JPanel {
                             .addComponent(dropLab, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(232, 232, 232)
-                        .addComponent(btnSignup)))
-                .addContainerGap(69, Short.MAX_VALUE))
+                        .addComponent(btnSignup))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(32, 32, 32)
+                        .addComponent(lblHeading, javax.swing.GroupLayout.PREFERRED_SIZE, 501, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(78, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addComponent(lblHeading, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(37, 37, 37)
+                .addGap(34, 34, 34)
+                .addComponent(lblHeading)
+                .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblName))
@@ -194,7 +195,7 @@ public class LifeHubManagerSignUpJPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "Please enter all details");
             return;
         }
-        if (txtName.getText().length() < 6 || txtName.getText().length() > 20) {
+        if (txtUsername.getText().length() < 6 || txtUsername.getText().length() > 20) {
             JOptionPane.showMessageDialog(this, "Username must be between 6 and 20 characters.");
             return;
         }
@@ -216,13 +217,13 @@ public class LifeHubManagerSignUpJPanel extends javax.swing.JPanel {
             PersonDirectory pd = es.getPersonDirectory();
             Person currentPerson = pd.newPerson(txtName.getText(), Integer.parseInt(txtAge.getText()), txtEmail.getText(), (String) dropGender.getSelectedItem());
 
-            LifeHubManagerDirectory managerDirectory = es.getHealthHubDirectory().findHubByName(dropLab.getSelectedItem().toString()).getHealthHubManagerDirectory();
+            LifeHubManagerDirectory managerDirectory = es.getLifeHubDirectory().findHubByName(dropLab.getSelectedItem().toString()).getLifeHubManagerDirectory();
             LifeHubManagerProfile managerProfile = managerDirectory.newManager(currentPerson, txtExperience.getText());
 
             es.getUseraccountdirectory().newUserAccount(managerProfile, txtUsername.getText(), Password.hasher(txtPassword.getText()));
 
             // Display confirmation message
-            JOptionPane.showMessageDialog(this, "Health Hub Manager registered successfully!");
+            JOptionPane.showMessageDialog(this, "Life Hub Manager Registered Successfully!");
         }
     }//GEN-LAST:event_btnSignupActionPerformed
 
