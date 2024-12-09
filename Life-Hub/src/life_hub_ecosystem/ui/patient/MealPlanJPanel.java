@@ -36,24 +36,32 @@ public class MealPlanJPanel extends javax.swing.JPanel {
     }
 
     void refreshMedsTable() {
-//clear supplier table
-        int rc = tbCourses.getRowCount();
-        int i;
-        for (i = rc - 1; i >= 0; i--) {
-            ((DefaultTableModel) tbCourses.getModel()).removeRow(i);
-        }
-        HashMap<Meal, ArrayList<String>> mealDetails = pp.getMealPlan().getMealDetails();//es.getMealOrderDirectory().getMealOrderlist(); //
-
-        for (Meal meal : mealDetails.keySet()) {
-            Object[] row = new Object[3];
-            row[0] = meal; //.getAssociatedPersonProfile().getPerson().getName();
-            row[1] = pp.getMealPlan().getMealDetails().get(meal).get(0);
-            row[2] = pp.getMealPlan().getMealDetails().get(meal).get(1);
-            ((DefaultTableModel) tbCourses.getModel()).addRow(row);
-        }
-        selectedDate = null;
-        selectedMeal = null;
+    // Clear existing rows in the table
+    int rc = tbCourses.getRowCount();
+    for (int i = rc - 1; i >= 0; i--) {
+        ((DefaultTableModel) tbCourses.getModel()).removeRow(i);
     }
+
+    // Check if MealPlan is null
+    if (pp.getMealPlan() == null) {
+        return; // Exit the method if MealPlan is null
+    }
+
+    // Retrieve meal details from MealPlan
+    HashMap<Meal, ArrayList<String>> mealDetails = pp.getMealPlan().getMealDetails();
+
+    // Populate the table with meal details
+    for (Meal meal : mealDetails.keySet()) {
+        Object[] row = new Object[3];
+        row[0] = meal; // Meal object
+        row[1] = mealDetails.get(meal).get(0); // Delivery Date
+        row[2] = mealDetails.get(meal).get(1); // Has Meal Consumed
+        ((DefaultTableModel) tbCourses.getModel()).addRow(row);
+    }
+
+    selectedDate = null;
+    selectedMeal = null;
+}
 
     /**
      * This method is called from within the constructor to initialize the form.
