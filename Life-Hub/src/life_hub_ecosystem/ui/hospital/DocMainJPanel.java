@@ -16,7 +16,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author marri
+ * @author ojas
  */
 public class DocMainJPanel extends javax.swing.JPanel {
 

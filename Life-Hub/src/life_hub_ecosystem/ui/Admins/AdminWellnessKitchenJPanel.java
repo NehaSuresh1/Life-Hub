@@ -16,7 +16,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author Tarun
+ * @author neha
  */
 public class AdminWellnessKitchenJPanel extends javax.swing.JPanel {
 

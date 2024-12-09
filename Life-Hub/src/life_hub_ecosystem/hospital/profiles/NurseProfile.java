@@ -11,7 +11,7 @@ import life_hub_ecosystem.persona.Profile;
 
 /**
  *
- * @author marri
+ * @author hemin
  */
 public class NurseProfile extends Profile {
 

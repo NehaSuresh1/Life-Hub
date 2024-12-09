@@ -9,7 +9,7 @@ import life_hub_ecosystem.persona.Profile;
 
 /**
  *
- * @author marri
+ * @author ojas
  */
 public class DelieryAgentProfile extends Profile {
 

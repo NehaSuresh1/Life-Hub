@@ -75,7 +75,7 @@ public class MessagesJPanel extends javax.swing.JPanel {
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitle.setText("Patient MealPlan Status");
         add(lblTitle);
-        lblTitle.setBounds(50, 10, 500, 50);
+        lblTitle.setBounds(100, 20, 500, 50);
 
         tbCourses.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
