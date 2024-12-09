@@ -32,7 +32,7 @@ public class LifeHubManagerProfile extends Profile{
 
     @Override
     public String getRole() {
-        return "Nurse";
+        return "Life Hub Manager";
     }
 
     public Person getPerson() {

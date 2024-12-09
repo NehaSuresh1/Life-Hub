@@ -14,15 +14,18 @@ import java.util.UUID;
 public class LifeHubDirectory {
 
     ArrayList<WellnessKitchen> hhlist;
+    String name;
+    String zipcode;
 
     public LifeHubDirectory() {
 
         hhlist = new ArrayList();
+       
 
     }
 
     public WellnessKitchen newHH(String name, String zipcode) {
-
+             
         WellnessKitchen p = new WellnessKitchen(UUID.randomUUID().toString(), name, zipcode);
         hhlist.add(p);
         return p;
@@ -62,7 +65,7 @@ public class LifeHubDirectory {
         }
         return null; //not found after going through the whole list
     }
-
     
+
 
 }
