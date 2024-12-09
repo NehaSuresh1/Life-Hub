@@ -69,7 +69,6 @@ public class WorkAreaMainFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1000, 800));
-        setPreferredSize(new java.awt.Dimension(800, 700));
 
         actionsidejpanel.setBackground(new java.awt.Color(204, 255, 255));
         actionsidejpanel.setMinimumSize(new java.awt.Dimension(200, 200));
@@ -100,7 +99,7 @@ public class WorkAreaMainFrame extends javax.swing.JFrame {
             }
         });
 
-        ddUser.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Patient", "Doctor", "Nurse", "Lab Assitant","Pharmacist","LifeHub Manager"}) );
+        ddUser.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Patient", "Doctor", "Nurse", "Lab Assistant","Pharmacist","LifeHub Manager"}) );
         ddUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ddUserActionPerformed(evt);
@@ -111,12 +110,6 @@ public class WorkAreaMainFrame extends javax.swing.JFrame {
         actionsidejpanel.setLayout(actionsidejpanelLayout);
         actionsidejpanelLayout.setHorizontalGroup(
             actionsidejpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, actionsidejpanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(actionsidejpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton2)
-                    .addComponent(ddUser, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
             .addGroup(actionsidejpanelLayout.createSequentialGroup()
                 .addGap(10, 10, 10)
                 .addGroup(actionsidejpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -126,12 +119,15 @@ public class WorkAreaMainFrame extends javax.swing.JFrame {
                             .addComponent(jLabel2))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(actionsidejpanelLayout.createSequentialGroup()
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, actionsidejpanelLayout.createSequentialGroup()
-                        .addGroup(actionsidejpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(PasswordTextField)
-                            .addComponent(UserNameTextField))
+                        .addGroup(actionsidejpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(PasswordTextField, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(UserNameTextField, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(ddUser, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(actionsidejpanelLayout.createSequentialGroup()
+                                .addGroup(actionsidejpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(105, 105, 105)))
                         .addContainerGap())))
         );
         actionsidejpanelLayout.setVerticalGroup(
@@ -151,8 +147,10 @@ public class WorkAreaMainFrame extends javax.swing.JFrame {
                 .addComponent(ddUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27)
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(104, Short.MAX_VALUE))
         );
+
+        actionsidejpanelLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jButton1, jButton2});
 
         SplitHomeArea.setLeftComponent(actionsidejpanel);
 
@@ -343,7 +341,7 @@ public class WorkAreaMainFrame extends javax.swing.JFrame {
             CardSequencePanel.add("Nurse", NurseSignUpJPanel);
             ((java.awt.CardLayout) CardSequencePanel.getLayout()).next(CardSequencePanel);
         }
-        if ("Lab Assitant".toLowerCase().equals((ddUser.getSelectedItem()).toString().toLowerCase())) {
+        if ("Lab Assistant".toLowerCase().equals((ddUser.getSelectedItem()).toString().toLowerCase())) {
 
             LabAssistantSignUpJPanel LabAssistantSignUpJPanel = new LabAssistantSignUpJPanel(CardSequencePanel, es);
             CardSequencePanel.removeAll();

@@ -9,7 +9,7 @@ import javax.swing.JPanel;
 
 /**
  *
- * @author Tarun
+ * @author ojas
  */
 public class AdminHospitalJpanel extends javax.swing.JPanel {
 
