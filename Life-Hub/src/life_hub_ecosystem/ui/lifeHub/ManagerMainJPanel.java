@@ -89,12 +89,15 @@ public class ManagerMainJPanel extends javax.swing.JPanel {
         btnLogout.setBackground(new java.awt.Color(204, 204, 204));
         btnLogout.setFont(new java.awt.Font("Helvetica", 1, 13)); // NOI18N
         btnLogout.setText("Logout");
+        btnLogout.setToolTipText("");
+        btnLogout.setMaximumSize(new java.awt.Dimension(75, 25));
+        btnLogout.setMinimumSize(new java.awt.Dimension(75, 25));
         btnLogout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLogoutActionPerformed(evt);
             }
         });
-        add(btnLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 440, 80, 30));
+        add(btnLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 420, 80, 30));
 
         tblMealOrders.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -114,16 +117,19 @@ public class ManagerMainJPanel extends javax.swing.JPanel {
         });
         jScrollPane4.setViewportView(tblMealOrders);
 
-        add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(52, 100, 690, 310));
+        add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, 690, 310));
 
         btnApprove.setFont(new java.awt.Font("Helvetica", 1, 13)); // NOI18N
         btnApprove.setText("Approve");
+        btnApprove.setToolTipText("");
+        btnApprove.setMaximumSize(new java.awt.Dimension(75, 25));
+        btnApprove.setMinimumSize(new java.awt.Dimension(75, 25));
         btnApprove.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnApproveActionPerformed(evt);
             }
         });
-        add(btnApprove, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 430, 90, 30));
+        add(btnApprove, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 420, 90, 30));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed

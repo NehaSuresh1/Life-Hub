@@ -205,61 +205,122 @@ public class PharmacistSignUpJPanel extends javax.swing.JPanel {
     private void btnSignupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSignupActionPerformed
         // TODO add your handling code here:
         //person = new Person(txt, TOOL_TIP_TEXT_KEY, ABORT, TOOL_TIP_TEXT_KEY)
-       if (txtAge.getText().isBlank() || txtEmail.getText().isBlank() || txtName.getText().isBlank()
-                || txtPassword.getText().isBlank() || txtUsername.getText().isBlank()
-                || txtQualification.getText().isBlank()) {
-            JOptionPane.showMessageDialog(this, "Please enter all details");
+if (txtAge.getText().isBlank() || txtEmail.getText().isBlank() || txtName.getText().isBlank()
+            || txtPassword.getText().isBlank() || txtUsername.getText().isBlank()
+            || txtQualification.getText().isBlank()) {
+        JOptionPane.showMessageDialog(this, "Please enter all details");
+        return;
+    }
+    if (txtUsername.getText().length() < 6 || txtUsername.getText().length() > 20) {
+        JOptionPane.showMessageDialog(this, "Username must be between 6 and 20 characters.");
+        return;
+    }
+
+    int age;
+    try {
+        age = Integer.parseInt(txtAge.getText());
+        if (age <= 0) {
+            JOptionPane.showMessageDialog(this, "Age must be a positive number.");
             return;
         }
-        if (txtUsername.getText().length() < 6 || txtUsername.getText().length() > 20) {
-            JOptionPane.showMessageDialog(this, "Username must be between 6 and 20 characters.");
+
+        if (age < 22 || age > 70) {
+            JOptionPane.showMessageDialog(this, "Age must be between 22 and 70.");
             return;
         }
-        
-        int age;
-        try {
-            age = Integer.parseInt(txtAge.getText());
-            if (age <= 0) {
-                JOptionPane.showMessageDialog(this, "Age must be a positive number.");
-                return;
-            }
-            
-            if (age < 22 || age > 70) {
-                JOptionPane.showMessageDialog(this, "Age must be between 22 and 70.");
-                return;
-            }
-        } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, "Age must be a valid number.");
-            return;
-        }
-        
-        //      Check if username exist 
-        if(!es.getUseraccountdirectory().isUserNameAvailable(txtUsername.getText())){
-            JOptionPane.showMessageDialog(this, "This username exists. use different username");
-            return;
-        }
-        
-//        }  if (!Validator.password(txtPassword.getText())) {
-//            JOptionPane.showMessageDialog(this, "Enter valid password");
+    } catch (NumberFormatException e) {
+        JOptionPane.showMessageDialog(this, "Age must be a valid number.");
+        return;
+    }
+
+    // Check if username exists 
+    if(!es.getUseraccountdirectory().isUserNameAvailable(txtUsername.getText())){
+        JOptionPane.showMessageDialog(this, "This username exists. Use a different username");
+        return;
+    }
+
+    if (!Validator.email(txtEmail.getText())) {
+        JOptionPane.showMessageDialog(this, "Enter a valid email");
+    } else {
+        // Create a new Person
+        PersonDirectory pd = es.getPersonDirectory();
+        Person currentPerson = pd.newPerson(txtName.getText(), Integer.parseInt(txtAge.getText()), txtEmail.getText(), (String) dropGender.getSelectedItem());
+
+        // Create a new PharmacistProfile
+        PharmacistDirectory pharmacistDirectory = es.getPharmacyDirectory().findLabByName(dropLab.getSelectedItem().toString()).getPharmacistDirectory();
+        PharmacistProfile pharmacistProfile = pharmacistDirectory.newPharmacist(currentPerson, txtQualification.getText());
+
+        // Add the PharmacistProfile to UserAccountDirectory
+        es.getUseraccountdirectory().newUserAccount(pharmacistProfile, txtUsername.getText(), Password.hasher(txtPassword.getText()));
+
+        // Display confirmation message
+        JOptionPane.showMessageDialog(this, "Pharmacist registered successfully!");
+
+        // Clear text fields after signup
+        txtName.setText("");
+        txtAge.setText("");
+        txtEmail.setText("");
+        txtUsername.setText("");
+        txtPassword.setText("");
+        txtQualification.setText("");
+        dropGender.setSelectedIndex(0);  // Reset gender dropdown to first item
+        dropLab.setSelectedIndex(0);     // Reset lab dropdown to first item
+    }
+//       if (txtAge.getText().isBlank() || txtEmail.getText().isBlank() || txtName.getText().isBlank()
+//                || txtPassword.getText().isBlank() || txtUsername.getText().isBlank()
+//                || txtQualification.getText().isBlank()) {
+//            JOptionPane.showMessageDialog(this, "Please enter all details");
 //            return;
 //        }
-        if (!Validator.email(txtEmail.getText())) {
-            JOptionPane.showMessageDialog(this, "Enter valid email");
-        } else {
-            // Create a new Person
-            PersonDirectory pd = es.getPersonDirectory();
-            Person currentPerson = pd.newPerson(txtName.getText(), Integer.parseInt(txtAge.getText()), txtEmail.getText(), (String) dropGender.getSelectedItem());
-
-            // Create a new PharmacistProfile
-            PharmacistDirectory pharmacistDirectory = es.getPharmacyDirectory().findLabByName(dropLab.getSelectedItem().toString()).getPharmacistDirectory();
-            PharmacistProfile pharmacistProfile = pharmacistDirectory.newPharmacist(currentPerson, txtQualification.getText());
-
-            // Add the PharmacistProfile to UserAccountDirectory
-            es.getUseraccountdirectory().newUserAccount(pharmacistProfile, txtUsername.getText(), Password.hasher(txtPassword.getText()));
-
-            // Display confirmation message
-            JOptionPane.showMessageDialog(this, "Pharmacist registered successfully!");
-        }
+//        if (txtUsername.getText().length() < 6 || txtUsername.getText().length() > 20) {
+//            JOptionPane.showMessageDialog(this, "Username must be between 6 and 20 characters.");
+//            return;
+//        }
+//        
+//        int age;
+//        try {
+//            age = Integer.parseInt(txtAge.getText());
+//            if (age <= 0) {
+//                JOptionPane.showMessageDialog(this, "Age must be a positive number.");
+//                return;
+//            }
+//            
+//            if (age < 22 || age > 70) {
+//                JOptionPane.showMessageDialog(this, "Age must be between 22 and 70.");
+//                return;
+//            }
+//        } catch (NumberFormatException e) {
+//            JOptionPane.showMessageDialog(this, "Age must be a valid number.");
+//            return;
+//        }
+//        
+//        //      Check if username exist 
+//        if(!es.getUseraccountdirectory().isUserNameAvailable(txtUsername.getText())){
+//            JOptionPane.showMessageDialog(this, "This username exists. use different username");
+//            return;
+//        }
+//        
+////        }  if (!Validator.password(txtPassword.getText())) {
+////            JOptionPane.showMessageDialog(this, "Enter valid password");
+////            return;
+////        }
+//        if (!Validator.email(txtEmail.getText())) {
+//            JOptionPane.showMessageDialog(this, "Enter valid email");
+//        } else {
+//            // Create a new Person
+//            PersonDirectory pd = es.getPersonDirectory();
+//            Person currentPerson = pd.newPerson(txtName.getText(), Integer.parseInt(txtAge.getText()), txtEmail.getText(), (String) dropGender.getSelectedItem());
+//
+//            // Create a new PharmacistProfile
+//            PharmacistDirectory pharmacistDirectory = es.getPharmacyDirectory().findLabByName(dropLab.getSelectedItem().toString()).getPharmacistDirectory();
+//            PharmacistProfile pharmacistProfile = pharmacistDirectory.newPharmacist(currentPerson, txtQualification.getText());
+//
+//            // Add the PharmacistProfile to UserAccountDirectory
+//            es.getUseraccountdirectory().newUserAccount(pharmacistProfile, txtUsername.getText(), Password.hasher(txtPassword.getText()));
+//
+//            // Display confirmation message
+//            JOptionPane.showMessageDialog(this, "Pharmacist registered successfully!");
+//        }
     }//GEN-LAST:event_btnSignupActionPerformed
 
     private void dropLabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dropLabActionPerformed

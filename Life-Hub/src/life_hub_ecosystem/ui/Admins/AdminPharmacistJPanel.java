@@ -16,7 +16,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author hemin
+ * @author ojas
  */
 public class AdminPharmacistJPanel extends javax.swing.JPanel {
 

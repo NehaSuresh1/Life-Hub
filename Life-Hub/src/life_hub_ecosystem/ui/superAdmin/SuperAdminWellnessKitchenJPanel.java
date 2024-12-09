@@ -139,7 +139,7 @@ public class SuperAdminWellnessKitchenJPanel extends javax.swing.JPanel {
         hh.newHH(jTextField1.getText(), jTextField2.getText());
         jTextField1.setText("      ");
         jTextField2.setText("      ");
-        JOptionPane.showMessageDialog(null, "Eatery Created", "Eatery Creation Dialog", JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(null, "Kitchen Created", "Kitchen Creation Dialog", JOptionPane.INFORMATION_MESSAGE);
         
     }//GEN-LAST:event_btnCreateActionPerformed
 

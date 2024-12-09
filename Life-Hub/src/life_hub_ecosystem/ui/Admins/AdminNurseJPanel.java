@@ -16,7 +16,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author hemin
+ * @author ojas
  */
 public class AdminNurseJPanel extends javax.swing.JPanel {
     private UserAccountDirectory userAccountDirectory;

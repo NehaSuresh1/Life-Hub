@@ -83,7 +83,7 @@ public class DoctorSignUpJPanel extends javax.swing.JPanel {
         lblHeading.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblHeading.setText("Doctor Registration");
 
-        dropGender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "male", "female" }));
+        dropGender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Male", "Female" }));
         dropGender.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 dropGenderActionPerformed(evt);
@@ -228,63 +228,145 @@ public class DoctorSignUpJPanel extends javax.swing.JPanel {
     private void btnSignupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSignupActionPerformed
         // TODO add your handling code here:
         //person = new Person(txt, TOOL_TIP_TEXT_KEY, ABORT, TOOL_TIP_TEXT_KEY)
-        if (txtAge.getText().isBlank() || txtEmail.getText().isBlank() || txtName.getText().isBlank()
-                || txtPassword.getText().isBlank() || txtUsername.getText().isBlank()
-                || txtExperience.getText().isBlank()) {
-            JOptionPane.showMessageDialog(this, "Please enter all details");
-            return;
-        }
-        if (txtUsername.getText().length() < 6 || txtUsername.getText().length() > 20) {
-            JOptionPane.showMessageDialog(this, "Username must be between 6 and 20 characters.");
-            return;
-        }
-        
-        int age;
-        try {
-            age = Integer.parseInt(txtAge.getText());
-        
-            if (age <= 0) {
-                JOptionPane.showMessageDialog(this, "Age must be a positive number.");
-                return;
-            }
-            
-            
-            if (age < 22 || age > 70) {
-                JOptionPane.showMessageDialog(this, "Age must be between 22 and 70.");
-                return;
-            }
-        } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, "Age must be a valid number.");
-            return;
-        }
-        
-        //      Check if username exist 
-        if(!es.getUseraccountdirectory().isUserNameAvailable(txtUsername.getText())){
-            JOptionPane.showMessageDialog(this, "This username exists. use different username");
-            return;
-        }
-//    if (!Validator.password(txtPassword.getText())) {
-//            JOptionPane.showMessageDialog(this, "Enter valid password");
+//        if (txtAge.getText().isBlank() || txtEmail.getText().isBlank() || txtName.getText().isBlank()
+//                || txtPassword.getText().isBlank() || txtUsername.getText().isBlank()
+//                || txtExperience.getText().isBlank()) {
+//            JOptionPane.showMessageDialog(this, "Please enter all details");
 //            return;
 //        }
-        if (!Validator.email(txtEmail.getText())) {
-            JOptionPane.showMessageDialog(this, "Enter valid email");
-        } else {
+//        if (txtUsername.getText().length() < 6 || txtUsername.getText().length() > 20) {
+//            JOptionPane.showMessageDialog(this, "Username must be between 6 and 20 characters.");
+//            return;
+//        }
+//        
+//        int age;
+//        try {
+//            age = Integer.parseInt(txtAge.getText());
+//        
+//            if (age <= 0) {
+//                JOptionPane.showMessageDialog(this, "Age must be a positive number.");
+//                return;
+//            }
+//            
+//            
+//            if (age < 22 || age > 70) {
+//                JOptionPane.showMessageDialog(this, "Age must be between 22 and 70.");
+//                return;
+//            }
+//        } catch (NumberFormatException e) {
+//            JOptionPane.showMessageDialog(this, "Age must be a valid number.");
+//            return;
+//        }
+//        
+//        //      Check if username exist 
+//        if(!es.getUseraccountdirectory().isUserNameAvailable(txtUsername.getText())){
+//            JOptionPane.showMessageDialog(this, "This username exists. use different username");
+//            return;
+//        }
+////    if (!Validator.password(txtPassword.getText())) {
+////            JOptionPane.showMessageDialog(this, "Enter valid password");
+////            return;
+////        }
+//        if (!Validator.email(txtEmail.getText())) {
+//            JOptionPane.showMessageDialog(this, "Enter valid email");
+//        } else {
+//
+//            PersonDirectory pd = es.getPersonDirectory();
+//            Person currentPerson = pd.newPerson(txtName.getText(), Integer.parseInt(txtAge.getText()), txtEmail.getText(), (String) dropGender.getSelectedItem());
+//
+//            DepartmentDirectory dd = es.getHospitalDirectory().findHospitalByName(dropHosp.getSelectedItem().toString()).getDepartmentDirectory();
+//            Department selectedDepartment = dd.newDept((String) dropSpeciality.getSelectedItem());
+//
+//            DoctorDirectory dcDir =   es.getHospitalDirectory().findHospitalByName(dropHosp.getSelectedItem().toString()).getDoctorDirectory();
+//                        
+//            DoctorProfile doctorProfile = dcDir.newDoctor(currentPerson, selectedDepartment, txtExperience.getText(), txtHighestQualification.getText(), es.getHospitalDirectory().findHospitalByName(dropHosp.getSelectedItem().toString()));
+//
+//            es.getUseraccountdirectory().newUserAccount(doctorProfile, txtUsername.getText(), Password.hasher(txtPassword.getText()));
+//
+//            JOptionPane.showMessageDialog(this, "Doctor registered successfully!");
+//            
+//            
+//        }
+//        txtName.setText("");
+//        txtAge.setText("");
+//        txtEmail.setText("");
+//        txtUsername.setText("");
+//        txtPassword.setText("");
+//        txtExperience.setText("");
+//        txtHighestQualification.setText("");
+//        dropGender.setSelectedIndex(0); // Reset gender dropdown to default
+//        dropSpeciality.setSelectedIndex(0); // Reset speciality dropdown to default
+//        dropHosp.setSelectedIndex(0); // Reset hospital dropdown to default
+//        
+    if (txtAge.getText().isBlank() || txtEmail.getText().isBlank() || txtName.getText().isBlank()
+            || txtPassword.getText().isBlank() || txtUsername.getText().isBlank()
+            || txtExperience.getText().isBlank()) {
+        JOptionPane.showMessageDialog(this, "Please enter all details");
+        return;
+    }
+    if (txtUsername.getText().length() < 6 || txtUsername.getText().length() > 20) {
+        JOptionPane.showMessageDialog(this, "Username must be between 6 and 20 characters.");
+        return;
+    }
 
-            PersonDirectory pd = es.getPersonDirectory();
-            Person currentPerson = pd.newPerson(txtName.getText(), Integer.parseInt(txtAge.getText()), txtEmail.getText(), (String) dropGender.getSelectedItem());
+    int age;
+    try {
+        age = Integer.parseInt(txtAge.getText());
 
-            DepartmentDirectory dd = es.getHospitalDirectory().findHospitalByName(dropHosp.getSelectedItem().toString()).getDepartmentDirectory();
-            Department selectedDepartment = dd.newDept((String) dropSpeciality.getSelectedItem());
-
-            DoctorDirectory dcDir =   es.getHospitalDirectory().findHospitalByName(dropHosp.getSelectedItem().toString()).getDoctorDirectory();
-                        
-            DoctorProfile doctorProfile = dcDir.newDoctor(currentPerson, selectedDepartment, txtExperience.getText(), txtHighestQualification.getText(), es.getHospitalDirectory().findHospitalByName(dropHosp.getSelectedItem().toString()));
-
-            es.getUseraccountdirectory().newUserAccount(doctorProfile, txtUsername.getText(), Password.hasher(txtPassword.getText()));
-
-            JOptionPane.showMessageDialog(this, "Doctor registered successfully!");
+        if (age <= 0) {
+            JOptionPane.showMessageDialog(this, "Age must be a positive number.");
+            return;
         }
+
+
+        if (age < 22 || age > 70) {
+            JOptionPane.showMessageDialog(this, "Age must be between 22 and 70.");
+            return;
+        }
+    } catch (NumberFormatException e) {
+        JOptionPane.showMessageDialog(this, "Age must be a valid number.");
+        return;
+    }
+
+    //      Check if username exist 
+    if (!es.getUseraccountdirectory().isUserNameAvailable(txtUsername.getText())) {
+        JOptionPane.showMessageDialog(this, "This username exists. use different username");
+        return;
+    }
+    //    if (!Validator.password(txtPassword.getText())) {
+    //            JOptionPane.showMessageDialog(this, "Enter valid password");
+    //            return;
+    //        }
+    if (!Validator.email(txtEmail.getText())) {
+        JOptionPane.showMessageDialog(this, "Enter valid email");
+    } else {
+
+        PersonDirectory pd = es.getPersonDirectory();
+        Person currentPerson = pd.newPerson(txtName.getText(), Integer.parseInt(txtAge.getText()), txtEmail.getText(), (String) dropGender.getSelectedItem());
+
+        DepartmentDirectory dd = es.getHospitalDirectory().findHospitalByName(dropHosp.getSelectedItem().toString()).getDepartmentDirectory();
+        Department selectedDepartment = dd.newDept((String) dropSpeciality.getSelectedItem());
+
+        DoctorDirectory dcDir = es.getHospitalDirectory().findHospitalByName(dropHosp.getSelectedItem().toString()).getDoctorDirectory();
+
+        DoctorProfile doctorProfile = dcDir.newDoctor(currentPerson, selectedDepartment, txtExperience.getText(), txtHighestQualification.getText(), es.getHospitalDirectory().findHospitalByName(dropHosp.getSelectedItem().toString()));
+
+        es.getUseraccountdirectory().newUserAccount(doctorProfile, txtUsername.getText(), Password.hasher(txtPassword.getText()));
+
+        JOptionPane.showMessageDialog(this, "Doctor registered successfully!");
+
+        // Clear all the text fields after successful sign-up
+        txtName.setText("");
+        txtAge.setText("");
+        txtEmail.setText("");
+        txtUsername.setText("");
+        txtPassword.setText("");
+        txtExperience.setText("");
+        txtHighestQualification.setText("");
+        dropGender.setSelectedIndex(0); // Reset gender dropdown to default
+        dropSpeciality.setSelectedIndex(0); // Reset speciality dropdown to default
+        dropHosp.setSelectedIndex(0); // Reset hospital dropdown to default
+    }
     }//GEN-LAST:event_btnSignupActionPerformed
 
     private void txtExperienceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtExperienceActionPerformed
