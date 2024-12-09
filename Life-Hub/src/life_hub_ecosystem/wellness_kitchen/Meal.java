@@ -6,7 +6,7 @@ package life_hub_ecosystem.wellness_kitchen;
 
 /**
  *
- * @author marri
+ * @author neha
  */
 public class Meal {
 

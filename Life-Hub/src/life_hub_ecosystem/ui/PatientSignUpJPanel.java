@@ -19,7 +19,7 @@ import javax.swing.JPanel;
 
 /**
  *
- * @author neha
+ * @author ojas
  */
 public class PatientSignUpJPanel extends javax.swing.JPanel {
 
@@ -247,7 +247,7 @@ public class PatientSignUpJPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSignupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSignupActionPerformed
-     try {
+try {
         // Validate that all required fields are filled
         if (txtAge.getText().isBlank() || txtEmail.getText().isBlank() || txtName.getText().isBlank() 
                 || txtPassword.getText().isBlank() || txtUsername.getText().isBlank() 
@@ -267,18 +267,12 @@ public class PatientSignUpJPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "This username already exists. Please use a different username.");
             return;
         }
-        
-            // Validate state selection
+
+        // Validate state selection
         if (dropState.getSelectedItem().toString().equals("Select")) {
             JOptionPane.showMessageDialog(this, "Please select a valid state.");
             return;
         }
-
-//        // Validate password using Validator class
-//        if (!Validator.password(txtPassword.getText())) {
-//            JOptionPane.showMessageDialog(this, "Enter a valid password. Password must meet the required criteria.");
-//            return;
-//        }
 
         // Validate email format using Validator class
         if (!Validator.email(txtEmail.getText())) {
@@ -330,10 +324,112 @@ public class PatientSignUpJPanel extends javax.swing.JPanel {
         // Display success message
         JOptionPane.showMessageDialog(this, "Patient registered successfully!");
 
+        // Clear all text fields
+        txtName.setText("");
+        txtAge.setText("");
+        txtEmail.setText("");
+        txtUsername.setText("");
+        txtPassword.setText("");
+        txtStreetAddress.setText("");
+        txtCity.setText("");
+        txtZipcode.setText("");
+
+        // Reset combo boxes to default values
+        dropGender.setSelectedIndex(0);  // Resets to the first item (Male)
+        dropState.setSelectedIndex(0);   // Resets to "Select"
+        dropDietary.setSelectedIndex(0); // Resets to the first item (Vegetarian)
+
     } catch (Exception e) {
         // Catch any unexpected errors and display an error message
         JOptionPane.showMessageDialog(this, "An unexpected error occurred: " + e.getMessage());
     }
+//     try {
+//        // Validate that all required fields are filled
+//        if (txtAge.getText().isBlank() || txtEmail.getText().isBlank() || txtName.getText().isBlank() 
+//                || txtPassword.getText().isBlank() || txtUsername.getText().isBlank() 
+//                || txtStreetAddress.getText().isBlank() || txtZipcode.getText().isBlank()) {
+//            JOptionPane.showMessageDialog(this, "Please enter all details.");
+//            return;
+//        }
+//
+//        // Validate username length
+//        if (txtUsername.getText().length() < 6 || txtUsername.getText().length() > 20) {
+//            JOptionPane.showMessageDialog(this, "Username must be between 6 and 20 characters.");
+//            return;
+//        }
+//
+//        // Check if username already exists
+//        if (!es.getUseraccountdirectory().isUserNameAvailable(txtUsername.getText())) {
+//            JOptionPane.showMessageDialog(this, "This username already exists. Please use a different username.");
+//            return;
+//        }
+//        
+//            // Validate state selection
+//        if (dropState.getSelectedItem().toString().equals("Select")) {
+//            JOptionPane.showMessageDialog(this, "Please select a valid state.");
+//            return;
+//        }
+//
+////        // Validate password using Validator class
+////        if (!Validator.password(txtPassword.getText())) {
+////            JOptionPane.showMessageDialog(this, "Enter a valid password. Password must meet the required criteria.");
+////            return;
+////        }
+//
+//        // Validate email format using Validator class
+//        if (!Validator.email(txtEmail.getText())) {
+//            JOptionPane.showMessageDialog(this, "Enter a valid email address.");
+//            return;
+//        }
+//
+//        // Validate age is a positive integer
+//        int age;
+//        try {
+//            age = Integer.parseInt(txtAge.getText());
+//            if (age <= 0) {
+//                JOptionPane.showMessageDialog(this, "Age must be a positive number.");
+//                return;
+//            }
+//        } catch (NumberFormatException e) {
+//            JOptionPane.showMessageDialog(this, "Age must be a valid number.");
+//            return;
+//        }
+//
+//        // Validate zipcode format (assuming it should be numeric and of specific length)
+//        if (!txtZipcode.getText().matches("\\d{5}")) { // Example: US ZIP code validation
+//            JOptionPane.showMessageDialog(this, "Enter a valid 5-digit ZIP code.");
+//            return;
+//        }
+//
+//        // Create new Person and PatientProfile objects
+//        PersonDirectory pd = new PersonDirectory();
+//        Person currentPerson = pd.newPerson(
+//                txtName.getText(),
+//                age,
+//                txtEmail.getText(),
+//                (String) dropGender.getSelectedItem()
+//        );
+//
+//        PatientProfile patientProfile = patientDirectory.newPatient(
+//                dropDietary.getSelectedItem().toString(),
+//                txtStreetAddress.getText(),
+//                txtCity.getText(),
+//                dropState.getSelectedItem().toString(),
+//                txtZipcode.getText(),
+//                currentPerson,
+//                es.getHospitalDirectory().findHospitalByZipcode(txtZipcode.getText())
+//        );
+//
+//        // Create a new user account
+//        es.getUseraccountdirectory().newUserAccount(patientProfile, txtUsername.getText(), Password.hasher(txtPassword.getText()));
+//
+//        // Display success message
+//        JOptionPane.showMessageDialog(this, "Patient registered successfully!");
+//
+//    } catch (Exception e) {
+//        // Catch any unexpected errors and display an error message
+//        JOptionPane.showMessageDialog(this, "An unexpected error occurred: " + e.getMessage());
+//    }
     }//GEN-LAST:event_btnSignupActionPerformed
 
     private void dropGenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dropGenderActionPerformed

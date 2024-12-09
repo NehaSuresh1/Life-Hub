@@ -58,14 +58,15 @@ public class NurseMainJPanel extends javax.swing.JPanel {
 //            }
 //        }
 //        selectedPatient = null;
-        int rc = tbCourses.getRowCount();
+            int rc = tbCourses.getRowCount();
     for (int i = rc - 1; i >= 0; i--) {
         ((DefaultTableModel) tbCourses.getModel()).removeRow(i);
     }
-
-    // Retrieve appointments and populate the table
+    
+    // Get appointments for the nurse's department
     ArrayList<Appointment> apts = np.getHosp().getAppointmentDirectory().getAppointmentsList();
     for (Appointment apt : apts) {
+        // Check if the appointment department matches the nurse's department
         if (np.getDept().equals(apt.getDp().getDept())) {
             Object[] row = new Object[4];
             row[0] = apt.getPp();  // Patient profile
@@ -75,7 +76,7 @@ public class NurseMainJPanel extends javax.swing.JPanel {
             ((DefaultTableModel) tbCourses.getModel()).addRow(row); // Add row to table model
         }
     }
-    selectedPatient = null;
+    selectedPatient = null; 
     }
 
     void refreshMealsTable() {
@@ -95,12 +96,14 @@ public class NurseMainJPanel extends javax.swing.JPanel {
 //            ((DefaultTableModel) tbCourses.getModel()).addRow(row);
 //        }
 //        selectedDate = null;
-          int rc = tbCourses1.getRowCount();
-        for (int i = rc - 1; i >= 0; i--) {
-            ((DefaultTableModel) tbCourses1.getModel()).removeRow(i);
-        }
+            int rc = tbCourses1.getRowCount();
+    for (int i = rc - 1; i >= 0; i--) {
+        ((DefaultTableModel) tbCourses1.getModel()).removeRow(i);
+    }
 
-    // Get meal details and add to the table
+    // Ensure selectedPatient is not null
+    if (selectedPatient != null) {
+        // Retrieve meal details for the selected patient
         HashMap<Meal, ArrayList<String>> mealDetails = selectedPatient.getMealPlan().getMealDetails();
         for (Meal meal : mealDetails.keySet()) {
             Object[] row = new Object[3];  // Meal, Delivery Date, Has Meal Consumed
@@ -109,8 +112,9 @@ public class NurseMainJPanel extends javax.swing.JPanel {
             row[2] = mealDetails.get(meal).get(1); // Meal consumption status
             ((DefaultTableModel) tbCourses1.getModel()).addRow(row);  // Add row to table model
         }
-        selectedDate = null;
-        }
+    }
+    selectedDate = null;
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -132,6 +136,7 @@ public class NurseMainJPanel extends javax.swing.JPanel {
         btnNotify = new javax.swing.JButton();
         txtMsg = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
+        btnRefresh = new javax.swing.JButton();
 
         setLayout(null);
 
@@ -196,7 +201,7 @@ public class NurseMainJPanel extends javax.swing.JPanel {
         lblTitle1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitle1.setText("Nurse Portal");
         add(lblTitle1);
-        lblTitle1.setBounds(56, 6, 680, 50);
+        lblTitle1.setBounds(280, 10, 220, 50);
 
         btnNotify.setText("Notify");
         btnNotify.addActionListener(new java.awt.event.ActionListener() {
@@ -212,6 +217,15 @@ public class NurseMainJPanel extends javax.swing.JPanel {
         jLabel1.setText("Message");
         add(jLabel1);
         jLabel1.setBounds(300, 520, 60, 20);
+
+        btnRefresh.setText("Refresh");
+        btnRefresh.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRefreshActionPerformed(evt);
+            }
+        });
+        add(btnRefresh);
+        btnRefresh.setBounds(10, 40, 70, 23);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
@@ -269,10 +283,17 @@ public class NurseMainJPanel extends javax.swing.JPanel {
         JOptionPane.showMessageDialog(this, "Message sent successfully.");
     }//GEN-LAST:event_btnNotifyActionPerformed
 
+    private void btnRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshActionPerformed
+        // TODO add your handling code here:
+        refreshMealsTable();
+        refreshTable();
+    }//GEN-LAST:event_btnRefreshActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLogout;
     private javax.swing.JButton btnNotify;
+    private javax.swing.JButton btnRefresh;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JProgressBar jProgressBar1;
     private javax.swing.JScrollPane jScrollPane1;

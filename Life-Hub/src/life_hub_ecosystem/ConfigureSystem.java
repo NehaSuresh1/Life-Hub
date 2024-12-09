@@ -27,6 +27,7 @@ import life_hub_ecosystem.pharmacy.PharmacistProfile;
 public class ConfigureSystem {
 
     public static EcoSystem initialize() {
+        
         EcoSystem es = new EcoSystem("Life Hub");
 
         Hospital h1 = es.hospitalDirectory.newHospital("Hospital Branch 1", "02119");
@@ -150,6 +151,7 @@ public class ConfigureSystem {
         es.getMealDirectory().NewMeal("Tofu Scramble", "Vegan");
         es.getMealDirectory().NewMeal("Stuffed Peppers", "Vegan");
         es.getMealDirectory().NewMeal("Rainbow Veggie Buddha Bowl", "Vegan");
+        
         es.getMealDirectory().NewMeal("Paneer Tikka Masala", "Vegetarian");
         es.getMealDirectory().NewMeal("Summer Paneer Veggie Wraps", "Vegetarian");
         es.getMealDirectory().NewMeal("Greek Yogurt","Vegetarian");
