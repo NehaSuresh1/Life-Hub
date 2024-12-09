@@ -148,6 +148,7 @@ public class ManagerMainJPanel extends javax.swing.JPanel {
             return;
         }
         selectedMealorder = (MealOrder) tblMealOrders.getValueAt(selectedrow, 0);
+        System.out.println(selectedMealorder);
         if (selectedMealorder == null) {
             return;
 
@@ -156,29 +157,15 @@ public class ManagerMainJPanel extends javax.swing.JPanel {
 
     private void btnApproveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnApproveActionPerformed
         // TODO add your handling code here:
-        MealPlan mp = new MealPlan();
+//        MealPlan mp = new MealPlan();
         if (selectedMealorder == null) {
             JOptionPane.showMessageDialog(this, "Select an order to proceed!");
             return;
         }
-        ArrayList<Meal> list = es.getMealDirectory().findMealByType(selectedMealorder.getPp().getDietaryChoice());
-        Collections.shuffle(list);
-//        int count = Integer.parseInt(selectedMealorder.getPeriod()) * 7;
-//        ArrayList<Meal> chosenElements = (ArrayList<Meal>) list.subList(0, list.size());
-        String date = selectedMealorder.getStartDate();
-        LocalDate ld = LocalDate.parse(date);
-        Random random = new Random();
-        //int randomElement = numbers.get(randomIndex);
-        for (int i = 0; i < list.size(); i++) {
-            int randomIndex = random.nextInt(list.size());
-            mp.addMeal(list.get(randomIndex), ld.plusDays(i).toString());
-        }
-//        for (Meal m : chosenElements) {
-//            mp.addMeal(m, ld.plusDays(i).toString());
-//        }
+
         selectedMealorder.setIsActive(true);
-        selectedMealorder.getPp().setMealPlan(mp);
-        JOptionPane.showMessageDialog(this, "Meal Plan created for Patient: " + selectedMealorder.getPp());
+//        selectedMealorder.getPp().setMealPlan(mp);
+        JOptionPane.showMessageDialog(this, "Meal Plan Approved for Patient: " + selectedMealorder.getPp());
         refreshMedsTable();
     }//GEN-LAST:event_btnApproveActionPerformed
 

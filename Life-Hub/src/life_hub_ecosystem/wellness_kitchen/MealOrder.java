@@ -10,7 +10,7 @@ import java.time.LocalDate;
 
 /**
  *
- * @author marri
+ * @author hemin
  */
 public class MealOrder {
 
@@ -20,6 +20,7 @@ public class MealOrder {
     String period;
     boolean isActive;
     String startDate;
+    boolean isDelivered;
 
     public MealOrder(String Id, DoctorProfile dp, PatientProfile pp, String period) {
         this.Id = Id;
@@ -28,6 +29,15 @@ public class MealOrder {
         this.period = period;
         this.isActive = false;
         this.startDate = LocalDate.now().toString();
+        this.isDelivered = false;
+    }
+
+    public boolean isIsDelivered() {
+        return isDelivered;
+    }
+
+    public void setIsDelivered(boolean isDelivered) {
+        this.isDelivered = isDelivered;
     }
 
     public String getStartDate() {
@@ -73,7 +83,7 @@ public class MealOrder {
     public void setIsActive(boolean isActive) {
         this.isActive = isActive;
     }
-
+    
     public boolean isMatch(String id) {
         if (getId().equals(id)) {
             return true;

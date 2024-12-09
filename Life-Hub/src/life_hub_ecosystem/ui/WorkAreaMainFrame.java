@@ -28,6 +28,8 @@ import life_hub_ecosystem.ui.labAssistant.LabAssistantMainJPanel;
 import life_hub_ecosystem.ui.patient.PatientMainJPanel;
 import life_hub_ecosystem.ui.superAdmin.SuperAdminJPanel;
 import javax.swing.JOptionPane;
+import life_hub_ecosystem.ui.DeliveryAgent.DeliveryAgentMainJPanel;
+import life_hub_ecosystem.wellness_kitchen.persona.DelieryAgentProfile;
 
 /**
  *
@@ -237,7 +239,7 @@ public class WorkAreaMainFrame extends javax.swing.JFrame {
         PharmacistMainJPanel pharmacistMainJPanel;
         LabAssistantMainJPanel labAssistantMainJPanel;
         ManagerMainJPanel managerMainJPanel;
-//        DeliveryAgentMainJPanel deliveryAgentMainJPanel;
+        DeliveryAgentMainJPanel deliveryAgentMainJPanel;
 
         String r = useraccount.getRole();
         Profile profile = useraccount.getAssociatedPersonProfile();
@@ -279,7 +281,7 @@ public class WorkAreaMainFrame extends javax.swing.JFrame {
             PharmacistProfile pp = (PharmacistProfile) profile;
             pharmacistMainJPanel = new PharmacistMainJPanel(es, pp, CardSequencePanel);
             CardSequencePanel.removeAll();
-            CardSequencePanel.add("student", pharmacistMainJPanel);
+            CardSequencePanel.add("pharmacist", pharmacistMainJPanel);
             ((java.awt.CardLayout) CardSequencePanel.getLayout()).next(CardSequencePanel);
         }
         if (profile instanceof LifeHubManagerProfile) {
@@ -287,17 +289,17 @@ public class WorkAreaMainFrame extends javax.swing.JFrame {
             LifeHubManagerProfile pp = (LifeHubManagerProfile) profile;
             managerMainJPanel = new ManagerMainJPanel(es, pp, CardSequencePanel);
             CardSequencePanel.removeAll();
-            CardSequencePanel.add("student", managerMainJPanel);
+            CardSequencePanel.add("manager", managerMainJPanel);
             ((java.awt.CardLayout) CardSequencePanel.getLayout()).next(CardSequencePanel);
         }
-//        if (profile instanceof DelieryAgentProfile) {
-//
-//            DelieryAgentProfile pp = (DelieryAgentProfile) profile;
-//            deliveryAgentMainJPanel = new DeliveryAgentMainJPanel(es, pp, CardSequencePanel);
-//            CardSequencePanel.removeAll();
-//            CardSequencePanel.add("student", deliveryAgentMainJPanel);
-//            ((java.awt.CardLayout) CardSequencePanel.getLayout()).next(CardSequencePanel);
-//        }
+        if (profile instanceof DelieryAgentProfile) {
+
+            DelieryAgentProfile pp = (DelieryAgentProfile) profile;
+            deliveryAgentMainJPanel = new DeliveryAgentMainJPanel(es, pp ,CardSequencePanel);
+            CardSequencePanel.removeAll();
+            CardSequencePanel.add("delivery", deliveryAgentMainJPanel);
+            ((java.awt.CardLayout) CardSequencePanel.getLayout()).next(CardSequencePanel);
+        }
 
 
     }//GEN-LAST:event_LoginButtonActionPerformed

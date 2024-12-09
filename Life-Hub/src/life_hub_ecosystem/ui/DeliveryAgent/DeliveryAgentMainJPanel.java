@@ -4,6 +4,19 @@
  */
 package life_hub_ecosystem.ui.DeliveryAgent;
 
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Random;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+import life_hub_ecosystem.EcoSystem;
+import life_hub_ecosystem.wellness_kitchen.Meal;
+import life_hub_ecosystem.wellness_kitchen.MealOrder;
+import life_hub_ecosystem.wellness_kitchen.MealPlan;
+import life_hub_ecosystem.wellness_kitchen.persona.DelieryAgentProfile;
+
 /**
  *
  * @author hemin
@@ -13,8 +26,17 @@ public class DeliveryAgentMainJPanel extends javax.swing.JPanel {
     /**
      * Creates new form DeliveryAgentMainJPanel
      */
-    public DeliveryAgentMainJPanel() {
+    JPanel CardSequencePanel;
+    EcoSystem es;
+    DelieryAgentProfile dap;
+    MealOrder selectedMealorder;
+    
+    public DeliveryAgentMainJPanel(EcoSystem es, DelieryAgentProfile dap, JPanel clp) {
         initComponents();
+        this.CardSequencePanel = clp;
+        this.dap = dap;
+        this.es = es;
+        refreshMealOrdersTable();
     }
 
     /**
@@ -26,19 +48,180 @@ public class DeliveryAgentMainJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        lblTitle = new javax.swing.JLabel();
+        btnLogout = new javax.swing.JButton();
+        btnDelivered = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblMealOrders = new javax.swing.JTable();
+
+        lblTitle.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblTitle.setText("Delivery Agent Portal");
+
+        btnLogout.setBackground(new java.awt.Color(204, 204, 204));
+        btnLogout.setFont(new java.awt.Font("Helvetica", 1, 13)); // NOI18N
+        btnLogout.setText("Logout");
+        btnLogout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLogoutActionPerformed(evt);
+            }
+        });
+
+        btnDelivered.setText("Delivered");
+        btnDelivered.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeliveredActionPerformed(evt);
+            }
+        });
+
+        tblMealOrders.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "Order ID", "Patient", "Doctor", "Meal Type", "Delivered"
+            }
+        ));
+        tblMealOrders.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                tblMealOrdersMousePressed(evt);
+            }
+        });
+        jScrollPane1.setViewportView(tblMealOrders);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(90, 90, 90)
+                        .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(249, 249, 249)
+                        .addComponent(btnDelivered, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 170, Short.MAX_VALUE))
+                    .addComponent(lblTitle, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnDelivered, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE))
+                .addGap(19, 19, 19))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
+        // TODO add your handling code here:
+        CardSequencePanel.remove(this);
+        ((java.awt.CardLayout) CardSequencePanel.getLayout()).next(CardSequencePanel);
+    }//GEN-LAST:event_btnLogoutActionPerformed
+
+    private void btnDeliveredActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeliveredActionPerformed
+        // TODO add your handling code here:
+        // Check if an order is selected
+        if (selectedMealorder == null) {
+            JOptionPane.showMessageDialog(this, "Select an order to mark as delivered!");
+            return;
+        }
+
+        // Update the delivered status
+        selectedMealorder.setIsDelivered(true);
+
+
+
+        MealPlan mp = new MealPlan();
+    
+    
+    
+        ArrayList<Meal> list = es.getMealDirectory().findMealByType(selectedMealorder.getPp().getDietaryChoice());
+        Collections.shuffle(list);
+//        int count = Integer.parseInt(selectedMealorder.getPeriod()) * 7;
+//        ArrayList<Meal> chosenElements = (ArrayList<Meal>) list.subList(0, list.size());
+        String date = selectedMealorder.getStartDate();
+        LocalDate ld = LocalDate.parse(date);
+        Random random = new Random();
+        //int randomElement = numbers.get(randomIndex);
+        for (int i = 0; i < list.size(); i++) {
+            int randomIndex = random.nextInt(list.size());
+            mp.addMeal(list.get(randomIndex), ld.plusDays(i).toString());
+        }
+    
+        selectedMealorder.getPp().setMealPlan(mp);
+
+
+
+        // Display confirmation message
+        JOptionPane.showMessageDialog(this, "Order ID: " + selectedMealorder.getId() + " has been marked as delivered!");
+
+        // Refresh the table to reflect changes
+        refreshMealOrdersTable();
+    }//GEN-LAST:event_btnDeliveredActionPerformed
+
+    private void tblMealOrdersMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblMealOrdersMousePressed
+        // TODO add your handling code here:
+    int selectedrow = tblMealOrders.getSelectionModel().getLeadSelectionIndex();
+
+    if (selectedrow < 0) {
+        return;
+    }
+
+    selectedMealorder = (MealOrder) tblMealOrders.getValueAt(selectedrow, 0); // Safe cast
+    System.out.println(selectedMealorder);
+
+    if (selectedMealorder == null) {
+        return;
+    }
+    }//GEN-LAST:event_tblMealOrdersMousePressed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnDelivered;
+    private javax.swing.JButton btnLogout;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblTitle;
+    private javax.swing.JTable tblMealOrders;
     // End of variables declaration//GEN-END:variables
+
+    private void refreshMealOrdersTable() {
+    // Clear existing rows in the table
+    int rowCount = tblMealOrders.getRowCount();
+    for (int i = rowCount - 1; i >= 0; i--) {
+        ((DefaultTableModel) tblMealOrders.getModel()).removeRow(i);
+    }
+
+    // Retrieve the list of meal orders
+    ArrayList<MealOrder> mealOrders = es.getMealOrderDirectory().getMealOrderlist();
+
+    // Populate the table with filtered data
+    for (MealOrder mealOrder : mealOrders) {
+        if (mealOrder.isIsActive()) { // Only include active orders
+            Object[] row = new Object[5];
+            row[0] = mealOrder; // Store the MealOrder object
+            row[1] = mealOrder.getPp(); // Patient
+            row[2] = mealOrder.getDp(); // Doctor
+            row[3] = mealOrder.getPp().getDietaryChoice(); // Meal Type
+            row[4] = mealOrder.isIsDelivered() ? "Yes" : "No"; // Delivered status
+            ((DefaultTableModel) tblMealOrders.getModel()).addRow(row);
+        }
+    }
+
+    // Reset selected order
+    selectedMealorder = null;
+}
+
 }
