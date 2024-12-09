@@ -182,7 +182,7 @@ public class WorkAreaMainFrame extends javax.swing.JFrame {
         String hashedPw = Password.hasher(pw);
         UserAccountDirectory uad = es.getUseraccountdirectory();
         
-        if(un.equals("adminEatery")&&pw.equals("admin")){
+        if(un.equals("adminKitchen")&&pw.equals("admin")){
             life_hub_ecosystem.ui.Admins.AdminWellnessKitchenJPanel sp=new life_hub_ecosystem.ui.Admins.AdminWellnessKitchenJPanel(es.getUseraccountdirectory(),CardSequencePanel);
             CardSequencePanel.removeAll();
             CardSequencePanel.add("SuperAdmin", sp);

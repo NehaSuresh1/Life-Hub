@@ -7,11 +7,20 @@ package life_hub_ecosystem.ui.superAdmin;
 import life_hub_ecosystem.persona.UserAccount;
 import life_hub_ecosystem.persona.UserAccountDirectory;
 import java.awt.BorderLayout;
+import java.awt.Color;
+import java.util.HashMap;
+import java.util.Map;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartPanel;
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.plot.PiePlot;
+import org.jfree.data.general.DefaultPieDataset;
 
 /**
  *
@@ -24,6 +33,7 @@ public class SuperAdminAllUsersJPanel extends javax.swing.JPanel {
      */
      private UserAccountDirectory userAccountDirectory;
     javax.swing.JPanel CardSequencePanel;
+    
     public SuperAdminAllUsersJPanel(UserAccountDirectory userAccountDirectory,JPanel cp) {
         initComponents();
         CardSequencePanel=cp;
@@ -44,6 +54,10 @@ public class SuperAdminAllUsersJPanel extends javax.swing.JPanel {
                 return column == 2; // Allow editing only for the "Enabled" column
             }
         };
+        
+        // Create and add the pie chart panel (in the North or East, based on your preference)
+        JPanel pieChartPanel = createPieChartPanel();
+        add(pieChartPanel, BorderLayout.NORTH);
 
         // Populate the table with data from the UserAccountDirectory
         for (UserAccount userAccount : userAccountDirectory.getUserAccountList()) {
@@ -57,10 +71,10 @@ public class SuperAdminAllUsersJPanel extends javax.swing.JPanel {
         JScrollPane scrollPane = new JScrollPane(table);
         add(scrollPane, BorderLayout.CENTER);
         JPanel buttonPanel = new JPanel();
-    buttonPanel.add(saveButton);
-    buttonPanel.add(btnBack);
+        buttonPanel.add(saveButton);
+        buttonPanel.add(btnBack);
 
-    add(buttonPanel, BorderLayout.SOUTH);
+        add(buttonPanel, BorderLayout.SOUTH);
 
 
     }
@@ -98,6 +112,41 @@ public class SuperAdminAllUsersJPanel extends javax.swing.JPanel {
     JOptionPane.showMessageDialog(this, "Changes saved successfully");
 }
 
+    private JPanel createPieChartPanel() {
+        // Create a dataset based on the user roles
+        DefaultPieDataset dataset = new DefaultPieDataset();
+        Map<String, Integer> roleCountMap = new HashMap<>();
+
+        for (UserAccount userAccount : userAccountDirectory.getUserAccountList()) {
+            String role = userAccount.getRole();
+            roleCountMap.put(role, roleCountMap.getOrDefault(role, 0) + 1);
+        }
+
+        // Add data to the dataset
+        for (Map.Entry<String, Integer> entry : roleCountMap.entrySet()) {
+            dataset.setValue(entry.getKey(), entry.getValue());
+        }
+
+        // Create a pie chart
+        JFreeChart pieChart = ChartFactory.createPieChart(
+                "User Roles Distribution", // Chart title
+                dataset, // Dataset
+                true, // Include legend
+                true, // Tooltips
+                false // URLs
+        );
+
+        // Customize the pie chart
+        PiePlot plot = (PiePlot) pieChart.getPlot();
+        plot.setSectionPaint("Admin", new Color(255, 99, 132));
+        plot.setSectionPaint("Pharmacist", new Color(54, 162, 235));
+        plot.setSectionPaint("Patient", new Color(75, 192, 192));
+
+        // Create a panel to display the chart
+        ChartPanel chartPanel = new ChartPanel(pieChart);
+        chartPanel.setPreferredSize(new java.awt.Dimension(300, 300));
+        return chartPanel;
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
