@@ -131,7 +131,7 @@ public class SuperAdminJPanel extends javax.swing.JPanel {
     private void btnEateryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEateryActionPerformed
         // TODO add your handling code here:
         SuperAdminWellnessKitchenJPanel hp = new SuperAdminWellnessKitchenJPanel(es, CardSequencePanel);
-        CardSequencePanel.add("SuperAdminEatery", hp);
+        CardSequencePanel.add("SuperAdminKitchen", hp);
         ((java.awt.CardLayout) CardSequencePanel.getLayout()).next(CardSequencePanel);
     }//GEN-LAST:event_btnEateryActionPerformed
 
