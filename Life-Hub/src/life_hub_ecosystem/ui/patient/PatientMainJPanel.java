@@ -42,7 +42,6 @@ public class PatientMainJPanel extends javax.swing.JPanel {
         btnPharma = new javax.swing.JButton();
         btnDietSys = new javax.swing.JButton();
         btnLR = new javax.swing.JButton();
-        btnMesg = new javax.swing.JButton();
         btnLogout = new javax.swing.JButton();
 
         setLayout(null);
@@ -60,7 +59,7 @@ public class PatientMainJPanel extends javax.swing.JPanel {
             }
         });
         add(btnAPT);
-        btnAPT.setBounds(160, 140, 140, 40);
+        btnAPT.setBounds(180, 150, 180, 70);
 
         btnPharma.setText("Current Med Plan");
         btnPharma.addActionListener(new java.awt.event.ActionListener() {
@@ -69,7 +68,7 @@ public class PatientMainJPanel extends javax.swing.JPanel {
             }
         });
         add(btnPharma);
-        btnPharma.setBounds(161, 210, 140, 40);
+        btnPharma.setBounds(180, 240, 180, 70);
 
         btnDietSys.setText("Diet System");
         btnDietSys.addActionListener(new java.awt.event.ActionListener() {
@@ -78,7 +77,7 @@ public class PatientMainJPanel extends javax.swing.JPanel {
             }
         });
         add(btnDietSys);
-        btnDietSys.setBounds(410, 140, 150, 40);
+        btnDietSys.setBounds(410, 150, 180, 70);
 
         btnLR.setText("Lab Reports");
         btnLR.addActionListener(new java.awt.event.ActionListener() {
@@ -87,16 +86,7 @@ public class PatientMainJPanel extends javax.swing.JPanel {
             }
         });
         add(btnLR);
-        btnLR.setBounds(160, 280, 140, 40);
-
-        btnMesg.setText("Messages");
-        btnMesg.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMesgActionPerformed(evt);
-            }
-        });
-        add(btnMesg);
-        btnMesg.setBounds(410, 210, 150, 40);
+        btnLR.setBounds(410, 240, 180, 70);
 
         btnLogout.setText("Logout");
         btnLogout.addActionListener(new java.awt.event.ActionListener() {
@@ -107,14 +97,6 @@ public class PatientMainJPanel extends javax.swing.JPanel {
         add(btnLogout);
         btnLogout.setBounds(70, 410, 110, 30);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnMesgActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMesgActionPerformed
-        // TODO add your handling code here:
-        MessagesJPanel aos = new MessagesJPanel(es, pp, CardSequencePanel);
-        // aos.setAgenda(businessunit.getRiskManagementAgenda());
-        CardSequencePanel.add("Appt", aos);
-        ((java.awt.CardLayout) CardSequencePanel.getLayout()).next(CardSequencePanel);
-    }//GEN-LAST:event_btnMesgActionPerformed
 
     private void btnAPTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAPTActionPerformed
         // TODO add your handling code here:
@@ -159,7 +141,6 @@ public class PatientMainJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnDietSys;
     private javax.swing.JButton btnLR;
     private javax.swing.JButton btnLogout;
-    private javax.swing.JButton btnMesg;
     private javax.swing.JButton btnPharma;
     private javax.swing.JLabel lblTitle;
     // End of variables declaration//GEN-END:variables

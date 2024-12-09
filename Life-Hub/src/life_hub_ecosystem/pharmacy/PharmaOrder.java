@@ -11,7 +11,7 @@ import life_hub_ecosystem.hospital.profiles.PatientProfile;
 
 /**
  *
- * @author marri
+ * @author hemin
  */
 public class PharmaOrder {
 

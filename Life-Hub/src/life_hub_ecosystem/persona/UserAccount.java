@@ -8,7 +8,7 @@ package life_hub_ecosystem.persona;
 
 /**
  *
- * @author kal bugrara
+ * @author hemin
  */
 public class UserAccount {
 

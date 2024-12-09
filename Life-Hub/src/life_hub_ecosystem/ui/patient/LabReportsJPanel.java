@@ -82,7 +82,7 @@ public class LabReportsJPanel extends javax.swing.JPanel {
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitle.setText("Reports Portal");
         add(lblTitle);
-        lblTitle.setBounds(0, 0, 760, 70);
+        lblTitle.setBounds(20, 10, 760, 70);
 
         tbCourses.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {

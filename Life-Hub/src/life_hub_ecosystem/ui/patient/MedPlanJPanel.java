@@ -88,7 +88,7 @@ public class MedPlanJPanel extends javax.swing.JPanel {
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitle.setText("Med Plan");
         add(lblTitle);
-        lblTitle.setBounds(18, 0, 760, 70);
+        lblTitle.setBounds(20, 20, 760, 70);
 
         tbCourses.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {

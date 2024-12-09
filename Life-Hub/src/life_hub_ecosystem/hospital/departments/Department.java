@@ -40,4 +40,9 @@ public class Department {
         }
         return false;
     }
+    
+    @Override
+    public String toString() {
+        return deptName;
+    }
 }

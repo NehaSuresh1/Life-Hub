@@ -9,7 +9,7 @@ import life_hub_ecosystem.persona.Profile;
 
 /**
  *
- * @author hemin
+ * @author ojas
  */
 public class LifeHubManagerProfile extends Profile{
 

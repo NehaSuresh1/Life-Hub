@@ -186,11 +186,7 @@ public class AppointmentJPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "Select a doctor to register!");
             return;
         }
-//        if (selectedCDoc.findRegisteredStudent(sp) != null) {
-//            JOptionPane.showMessageDialog(this, "Already registered for the course!");
-//            return;
-//        }
-        //selectedCDoc.registerStudent(sp);
+        
         ArrayList<Appointment> aptList = selectedCDoc.getHosp().getAppointmentDirectory().getAppointmentsList();//.remove(ui);
         if (!aptList.isEmpty()) {
             for (Appointment apt : aptList) {

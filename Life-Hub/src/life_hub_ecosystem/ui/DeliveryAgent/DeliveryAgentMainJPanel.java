@@ -134,20 +134,13 @@ public class DeliveryAgentMainJPanel extends javax.swing.JPanel {
     private void btnDeliveredActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeliveredActionPerformed
         // TODO add your handling code here:
         // Check if an order is selected
+        
+        MealPlan mp = new MealPlan();
         if (selectedMealorder == null) {
             JOptionPane.showMessageDialog(this, "Select an order to mark as delivered!");
             return;
         }
-
-        // Update the delivered status
-        selectedMealorder.setIsDelivered(true);
-
-
-
-        MealPlan mp = new MealPlan();
-    
-    
-    
+        
         ArrayList<Meal> list = es.getMealDirectory().findMealByType(selectedMealorder.getPp().getDietaryChoice());
         Collections.shuffle(list);
 //        int count = Integer.parseInt(selectedMealorder.getPeriod()) * 7;
@@ -163,7 +156,8 @@ public class DeliveryAgentMainJPanel extends javax.swing.JPanel {
     
         selectedMealorder.getPp().setMealPlan(mp);
 
-
+        // Update the delivered status
+        selectedMealorder.setIsDelivered(true);
 
         // Display confirmation message
         JOptionPane.showMessageDialog(this, "Order ID: " + selectedMealorder.getId() + " has been marked as delivered!");
